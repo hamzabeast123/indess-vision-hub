@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/indess-logo.png";
 import { cn } from "@/lib/utils";
 
-const NAV = [
-  { to: "/", label: "Company" },
-  { to: "/brands", label: "Brands" },
-  { to: "/products", label: "Products" },
-  { to: "/partners", label: "Partners" },
-  { to: "/contact", label: "Contact" },
+const SECTIONS = [
+  { id: "company", label: "Company" },
+  { id: "industries", label: "Industries" },
+  { id: "services", label: "Services" },
+  { id: "products", label: "Products" },
+  { id: "brands", label: "Brands" },
+  { id: "partners", label: "Partners" },
+  { id: "contact", label: "Contact" },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -24,88 +24,54 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [location.pathname]);
+  const go = (id: string) => {
+    setOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <header
       className={cn(
-        "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-card-soft"
-          : "bg-transparent"
+        "fixed top-0 inset-x-0 z-50 transition-all duration-500",
+        scrolled ? "bg-white/95 backdrop-blur-xl border-b border-border" : "bg-transparent"
       )}
     >
       <div className="container flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-3 group">
-          <img
-            src={logo}
-            alt="INDESS — Industrial Energy Supply Solutions"
-            className="h-9 w-auto"
-            width={180}
-            height={40}
-          />
-        </Link>
+        <button onClick={() => go("top")} className={cn("flex items-center gap-3", scrolled ? "" : "bg-white/95 px-3 py-1.5 rounded")}>
+          <img src={logo} alt="INDESS" className="h-8 w-auto" width={160} height={32} />
+        </button>
 
-        <nav className="hidden lg:flex items-center gap-1">
-          {NAV.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.to === "/"}
-              className={({ isActive }) =>
-                cn(
-                  "px-4 py-2 text-sm font-medium rounded-md transition-colors relative",
-                  isActive
-                    ? "text-brand"
-                    : scrolled
-                    ? "text-foreground/75 hover:text-brand"
-                    : "text-white/85 hover:text-white"
-                )
-              }
+        <nav className="hidden lg:flex items-center gap-8">
+          {SECTIONS.map((s) => (
+            <button
+              key={s.id}
+              onClick={() => go(s.id)}
+              className={cn(
+                "text-[11px] font-medium tracking-wide-2 uppercase transition-colors",
+                scrolled ? "text-foreground/70 hover:text-brand" : "text-white/85 hover:text-white"
+              )}
             >
-              {item.label.toUpperCase()}
-            </NavLink>
+              {s.label}
+            </button>
           ))}
         </nav>
 
-        <Link
-          to="/contact"
-          className="hidden lg:inline-flex items-center px-5 py-2.5 text-sm font-semibold rounded-md gradient-brand text-white shadow-elegant hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5"
-        >
-          Get a Quote
-        </Link>
+        <button onClick={() => go("contact")} className="hidden lg:inline-flex items-center text-[11px] font-semibold tracking-wide-2 uppercase text-white bg-brand px-5 py-3 hover:bg-brand-deep transition-colors">
+          Get in Touch
+        </button>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className={cn(
-            "lg:hidden p-2 rounded-md",
-            scrolled ? "text-foreground" : "text-white"
-          )}
-          aria-label="Toggle menu"
-        >
+        <button onClick={() => setOpen((v) => !v)} className={cn("lg:hidden p-2", scrolled ? "text-foreground" : "text-white")} aria-label="Toggle menu">
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden bg-background border-t border-border animate-fade-in">
-          <nav className="container py-4 flex flex-col gap-1">
-            {NAV.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === "/"}
-                className={({ isActive }) =>
-                  cn(
-                    "px-4 py-3 text-sm font-medium rounded-md",
-                    isActive
-                      ? "bg-accent text-brand"
-                      : "text-foreground/80 hover:bg-muted"
-                  )
-                }
-              >
-                {item.label.toUpperCase()}
-              </NavLink>
+        <div className="lg:hidden bg-white border-t border-border">
+          <nav className="container py-4 flex flex-col">
+            {SECTIONS.map((s) => (
+              <button key={s.id} onClick={() => go(s.id)} className="px-2 py-3 text-left text-sm font-medium tracking-wide-2 uppercase text-foreground/80 hover:text-brand border-b border-border">
+                {s.label}
+              </button>
             ))}
           </nav>
         </div>

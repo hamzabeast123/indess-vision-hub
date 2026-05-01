@@ -23,9 +23,10 @@ export default {
           DEFAULT: "hsl(var(--brand))",
           deep: "hsl(var(--brand-deep))",
           glow: "hsl(var(--brand-glow))",
+          soft: "hsl(var(--brand-soft))",
         },
-        amber: {
-          DEFAULT: "hsl(var(--accent-amber))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

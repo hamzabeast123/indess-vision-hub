@@ -3,19 +3,20 @@
 @tailwind utilities;
 
 /* INDESS — Premium industrial design system. All colors HSL. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@200;300;400;500&display=swap');
 
 @layer base {
   :root {
-    /* Brand */
-    --brand: 211 89% 41%;          /* INDESS blue from logo */
-    --brand-deep: 215 75% 18%;     /* navy */
-    --brand-glow: 205 95% 55%;     /* electric */
-    --accent-amber: 38 95% 55%;    /* industrial amber */
+    /* Brand — refined editorial palette */
+    --brand: 207 100% 33%;          /* #005da8 INDESS primary */
+    --brand-deep: 210 100% 15%;     /* deep navy */
+    --brand-glow: 207 80% 50%;      /* tint */
+    --brand-soft: 207 60% 96%;      /* very light tint */
+    --gold: 38 44% 65%;             /* #d1b87a editorial accent */
 
     /* Surfaces */
-    --background: 210 30% 99%;
-    --foreground: 215 35% 12%;
+    --background: 0 0% 100%;
+    --foreground: 210 25% 12%;
 
     --card: 0 0% 100%;
     --card-foreground: 215 35% 12%;
@@ -29,8 +30,8 @@
     --secondary: 210 30% 96%;
     --secondary-foreground: 215 45% 16%;
 
-    --muted: 210 25% 95%;
-    --muted-foreground: 215 16% 42%;
+    --muted: 210 20% 97%;
+    --muted-foreground: 215 14% 42%;
 
     --accent: 211 89% 96%;
     --accent-foreground: 211 89% 28%;
@@ -45,7 +46,7 @@
     --radius: 0.625rem;
 
     /* Gradients & effects */
-    --gradient-hero: linear-gradient(135deg, hsl(215 75% 12%) 0%, hsl(211 89% 28%) 50%, hsl(205 95% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 10%) 0%, hsl(207 100% 25%) 60%, hsl(207 100% 33%) 100%);
     --gradient-brand: linear-gradient(135deg, hsl(var(--brand)) 0%, hsl(var(--brand-glow)) 100%);
     --gradient-deep: linear-gradient(180deg, hsl(215 75% 14%) 0%, hsl(215 80% 8%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(210 30% 99%) 0%, hsl(210 30% 96%) 100%);
@@ -115,8 +116,9 @@
   }
 
   h1, h2, h3, h4, .font-display {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Barlow Condensed', 'Inter', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.005em;
   }
 }
 
@@ -129,6 +131,13 @@
   .shadow-card-soft { box-shadow: var(--shadow-card); }
   .shadow-glow { box-shadow: var(--shadow-glow); }
   .text-balance { text-wrap: balance; }
+  .tracking-editorial { letter-spacing: 0.32em; }
+  .tracking-wide-2 { letter-spacing: 0.18em; }
+  .font-display-light { font-family: 'Barlow Condensed', sans-serif; font-weight: 200; }
+  .rule-gold { background: hsl(var(--gold)); }
+  .text-gold { color: hsl(var(--gold)); }
+  .border-gold { border-color: hsl(var(--gold)); }
+  .bg-brand-soft { background-color: hsl(var(--brand-soft)); }
   .grid-pattern {
     background-image:
       linear-gradient(hsl(var(--brand) / 0.06) 1px, transparent 1px),

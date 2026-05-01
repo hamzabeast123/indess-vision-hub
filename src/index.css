@@ -2,56 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* INDESS — Premium industrial design system. All colors HSL. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand */
+    --brand: 211 89% 41%;          /* INDESS blue from logo */
+    --brand-deep: 215 75% 18%;     /* navy */
+    --brand-glow: 205 95% 55%;     /* electric */
+    --accent-amber: 38 95% 55%;    /* industrial amber */
+
+    /* Surfaces */
+    --background: 210 30% 99%;
+    --foreground: 215 35% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 35% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 35% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 211 89% 41%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 30% 96%;
+    --secondary-foreground: 215 45% 16%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 25% 95%;
+    --muted-foreground: 215 16% 42%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 211 89% 96%;
+    --accent-foreground: 211 89% 28%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 214 25% 90%;
+    --input: 214 25% 90%;
+    --ring: 211 89% 41%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
+
+    /* Gradients & effects */
+    --gradient-hero: linear-gradient(135deg, hsl(215 75% 12%) 0%, hsl(211 89% 28%) 50%, hsl(205 95% 45%) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(var(--brand)) 0%, hsl(var(--brand-glow)) 100%);
+    --gradient-deep: linear-gradient(180deg, hsl(215 75% 14%) 0%, hsl(215 80% 8%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(210 30% 99%) 0%, hsl(210 30% 96%) 100%);
+    --shadow-elegant: 0 20px 50px -20px hsl(211 89% 41% / 0.25);
+    --shadow-card: 0 4px 24px -8px hsl(215 50% 20% / 0.08);
+    --shadow-glow: 0 0 60px hsl(205 95% 55% / 0.35);
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -100,6 +109,41 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
   }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-brand { background: var(--gradient-brand); }
+  .gradient-deep { background: var(--gradient-deep); }
+  .gradient-subtle { background: var(--gradient-subtle); }
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-card-soft { box-shadow: var(--shadow-card); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .text-balance { text-wrap: balance; }
+  .grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--brand) / 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--brand) / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .animate-fade-up { animation: fade-up 0.7s var(--transition-smooth) both; }
+  .animate-fade-in { animation: fade-in 0.8s ease-out both; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

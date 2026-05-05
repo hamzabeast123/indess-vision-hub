@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import Layout from "@/components/layout/Layout";
 import hero from "@/assets/cin-hero.jpg";

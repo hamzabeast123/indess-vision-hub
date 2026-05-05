@@ -2,61 +2,83 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Search } from "lucide-react";
 import Layout from "@/components/layout/Layout";
+import imgPumps from "@/assets/catalog/pumps.jpg";
+import imgValves from "@/assets/catalog/valves.jpg";
+import imgCompressors from "@/assets/catalog/compressors.jpg";
+import imgPipes from "@/assets/catalog/pipes.jpg";
+import imgHeatExchangers from "@/assets/catalog/heat-exchangers.jpg";
+import imgTransmitters from "@/assets/catalog/transmitters.jpg";
+import imgControlSystems from "@/assets/catalog/control-systems.jpg";
+import imgControlValves from "@/assets/catalog/control-valves.jpg";
+import imgSafetyDetection from "@/assets/catalog/safety-detection.jpg";
+import imgSwitchgear from "@/assets/catalog/switchgear.jpg";
+import imgTransformers from "@/assets/catalog/transformers.jpg";
+import imgMotors from "@/assets/catalog/motors.jpg";
+import imgCables from "@/assets/catalog/cables.jpg";
+import imgLightingUps from "@/assets/catalog/lighting-ups.jpg";
+import imgLubricants from "@/assets/catalog/lubricants.jpg";
+import imgTreatment from "@/assets/catalog/treatment-chemicals.jpg";
+import imgDrilling from "@/assets/catalog/drilling-fluids.jpg";
+import imgCleaning from "@/assets/catalog/cleaning-chemicals.jpg";
+import imgVlcc from "@/assets/catalog/vlcc.jpg";
+import imgDeck from "@/assets/catalog/deck.jpg";
+import imgEngineRoom from "@/assets/catalog/engine-room.jpg";
+import imgSafetyNav from "@/assets/catalog/safety-navigation.jpg";
 
 type Product = { name: string; sub: string };
-type Category = { n: string; title: string; subs: { name: string; products: string[] }[] };
+type Category = { n: string; title: string; subs: { name: string; image: string; products: string[] }[] };
 
 const CATEGORIES: Category[] = [
   {
     n: "01",
     title: "Mechanical Solutions",
     subs: [
-      { name: "Pumps", products: ["Centrifugal Pumps", "Positive Displacement Pumps", "Submersible Pumps", "Diaphragm Pumps", "Gear Pumps"] },
-      { name: "Valves", products: ["Ball Valves", "Gate Valves", "Globe Valves", "Check Valves", "Butterfly Valves", "Needle Valves"] },
-      { name: "Compressors", products: ["Reciprocating Compressors", "Screw Compressors", "Centrifugal Compressors"] },
-      { name: "Pipes & Fittings", products: ["Carbon Steel Pipes", "Stainless Steel Pipes", "Flanges", "Elbows & Tees", "Gaskets"] },
-      { name: "Heat Exchangers", products: ["Shell & Tube", "Plate Heat Exchangers", "Air-Cooled"] },
+      { name: "Pumps", image: imgPumps, products: ["Centrifugal Pumps", "Positive Displacement Pumps", "Submersible Pumps", "Diaphragm Pumps", "Gear Pumps"] },
+      { name: "Valves", image: imgValves, products: ["Ball Valves", "Gate Valves", "Globe Valves", "Check Valves", "Butterfly Valves", "Needle Valves"] },
+      { name: "Compressors", image: imgCompressors, products: ["Reciprocating Compressors", "Screw Compressors", "Centrifugal Compressors"] },
+      { name: "Pipes & Fittings", image: imgPipes, products: ["Carbon Steel Pipes", "Stainless Steel Pipes", "Flanges", "Elbows & Tees", "Gaskets"] },
+      { name: "Heat Exchangers", image: imgHeatExchangers, products: ["Shell & Tube", "Plate Heat Exchangers", "Air-Cooled"] },
     ],
   },
   {
     n: "02",
     title: "Instrumentation",
     subs: [
-      { name: "Transmitters", products: ["Pressure Transmitters", "Flow Transmitters", "Level Transmitters", "Temperature Transmitters"] },
-      { name: "Control Systems", products: ["PLC Systems", "DCS Systems", "SCADA Systems", "HMI Panels"] },
-      { name: "Control Valves", products: ["Pneumatic Control Valves", "Electric Actuated Valves", "Pressure Regulators"] },
-      { name: "Safety & Detection", products: ["Fire Detectors", "Gas Detectors", "Flame Detectors", "Emergency Shutdown Systems"] },
+      { name: "Transmitters", image: imgTransmitters, products: ["Pressure Transmitters", "Flow Transmitters", "Level Transmitters", "Temperature Transmitters"] },
+      { name: "Control Systems", image: imgControlSystems, products: ["PLC Systems", "DCS Systems", "SCADA Systems", "HMI Panels"] },
+      { name: "Control Valves", image: imgControlValves, products: ["Pneumatic Control Valves", "Electric Actuated Valves", "Pressure Regulators"] },
+      { name: "Safety & Detection", image: imgSafetyDetection, products: ["Fire Detectors", "Gas Detectors", "Flame Detectors", "Emergency Shutdown Systems"] },
     ],
   },
   {
     n: "03",
     title: "Electrical Systems & Equipment",
     subs: [
-      { name: "Switchgear", products: ["LV Switchgear", "MV Switchgear", "Distribution Panels", "MCC Panels"] },
-      { name: "Transformers", products: ["Power Transformers", "Distribution Transformers", "Isolation Transformers"] },
-      { name: "Motors & Drives", products: ["AC Induction Motors", "Servo Motors", "Variable Frequency Drives", "Soft Starters"] },
-      { name: "Cables & Accessories", products: ["LV Power Cables", "MV Power Cables", "Instrumentation Cables", "Cable Glands & Terminations"] },
-      { name: "Lighting & UPS", products: ["Industrial Lighting", "Hazardous Area Lighting", "UPS Systems", "Battery Banks"] },
+      { name: "Switchgear", image: imgSwitchgear, products: ["LV Switchgear", "MV Switchgear", "Distribution Panels", "MCC Panels"] },
+      { name: "Transformers", image: imgTransformers, products: ["Power Transformers", "Distribution Transformers", "Isolation Transformers"] },
+      { name: "Motors & Drives", image: imgMotors, products: ["AC Induction Motors", "Servo Motors", "Variable Frequency Drives", "Soft Starters"] },
+      { name: "Cables & Accessories", image: imgCables, products: ["LV Power Cables", "MV Power Cables", "Instrumentation Cables", "Cable Glands & Terminations"] },
+      { name: "Lighting & UPS", image: imgLightingUps, products: ["Industrial Lighting", "Hazardous Area Lighting", "UPS Systems", "Battery Banks"] },
     ],
   },
   {
     n: "04",
     title: "Industrial Chemicals",
     subs: [
-      { name: "Lubricants", products: ["Industrial Greases", "Hydraulic Oils", "Gear Oils", "Compressor Oils"] },
-      { name: "Treatment Chemicals", products: ["Corrosion Inhibitors", "Scale Inhibitors", "Biocides", "Demulsifiers"] },
-      { name: "Drilling Fluids", products: ["Water-Based Mud", "Oil-Based Mud", "Completion Fluids"] },
-      { name: "Cleaning Chemicals", products: ["Degreasers", "Solvents", "Tank Cleaning Agents"] },
+      { name: "Lubricants", image: imgLubricants, products: ["Industrial Greases", "Hydraulic Oils", "Gear Oils", "Compressor Oils"] },
+      { name: "Treatment Chemicals", image: imgTreatment, products: ["Corrosion Inhibitors", "Scale Inhibitors", "Biocides", "Demulsifiers"] },
+      { name: "Drilling Fluids", image: imgDrilling, products: ["Water-Based Mud", "Oil-Based Mud", "Completion Fluids"] },
+      { name: "Cleaning Chemicals", image: imgCleaning, products: ["Degreasers", "Solvents", "Tank Cleaning Agents"] },
     ],
   },
   {
     n: "05",
     title: "Marine Products",
     subs: [
-      { name: "VLCC & VLCs Equipment", products: ["Marine Pumps", "Cargo Handling Systems", "Inert Gas Systems", "Tank Cleaning Systems"] },
-      { name: "Deck Equipment", products: ["Mooring Winches", "Anchor Windlasses", "Cranes & Davits"] },
-      { name: "Engine Room", products: ["Marine Generators", "Boilers", "Heat Exchangers", "Separators"] },
-      { name: "Safety & Navigation", products: ["Life Saving Appliances", "Navigation Lights", "Communication Systems"] },
+      { name: "VLCC & VLCs Equipment", image: imgVlcc, products: ["Marine Pumps", "Cargo Handling Systems", "Inert Gas Systems", "Tank Cleaning Systems"] },
+      { name: "Deck Equipment", image: imgDeck, products: ["Mooring Winches", "Anchor Windlasses", "Cranes & Davits"] },
+      { name: "Engine Room", image: imgEngineRoom, products: ["Marine Generators", "Boilers", "Heat Exchangers", "Separators"] },
+      { name: "Safety & Navigation", image: imgSafetyNav, products: ["Life Saving Appliances", "Navigation Lights", "Communication Systems"] },
     ],
   },
 ];
@@ -145,17 +167,29 @@ const Catalog = () => {
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
                 {cat.subs.map((sub) => (
-                  <div key={sub.name} className="bg-white p-8">
-                    <h3 className="font-display-light text-xl mb-2">{sub.name}</h3>
-                    <div className="h-px w-10 rule-gold mb-5" />
-                    <ul className="space-y-2.5">
-                      {sub.products.map((p) => (
-                        <li key={p} className="text-[13px] text-foreground/75 font-light flex items-start gap-3">
-                          <span className="mt-2 h-1 w-1 bg-gold shrink-0" />
-                          {p}
-                        </li>
-                      ))}
-                    </ul>
+                  <div key={sub.name} className="bg-white group flex flex-col">
+                    <div className="aspect-[5/4] overflow-hidden bg-brand-soft">
+                      <img
+                        src={sub.image}
+                        alt={sub.name}
+                        loading="lazy"
+                        width={800}
+                        height={640}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-8 flex-1 flex flex-col">
+                      <h3 className="font-display-light text-xl mb-2">{sub.name}</h3>
+                      <div className="h-px w-10 rule-gold mb-5" />
+                      <ul className="space-y-2.5">
+                        {sub.products.map((p) => (
+                          <li key={p} className="text-[13px] text-foreground/75 font-light flex items-start gap-3">
+                            <span className="mt-2 h-1 w-1 bg-gold shrink-0" />
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 ))}
               </div>

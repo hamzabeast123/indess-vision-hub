@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/indess-logo.png";
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
   { id: "company", label: "Company" },
-  { id: "industries", label: "Industries" },
-  { id: "services", label: "Services" },
-  { id: "products", label: "Products" },
-  { id: "brands", label: "Brands" },
+  { id: "expertise", label: "Expertise" },
+  { id: "catalog", label: "Catalog", route: "/catalog" },
   { id: "partners", label: "Partners" },
-  { id: "contact", label: "Contact" },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -24,8 +24,18 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const go = (id: string) => {
+  const go = (id: string, route?: string) => {
     setOpen(false);
+    if (route) {
+      navigate(route);
+      window.scrollTo({ top: 0 });
+      return;
+    }
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }), 80);
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -37,7 +47,7 @@ const Header = () => {
       )}
     >
       <div className="container flex items-center justify-between h-20">
-        <button onClick={() => go("top")} className={cn("flex items-center gap-3", scrolled ? "" : "bg-white/95 px-3 py-1.5 rounded")}>
+        <button onClick={() => { setOpen(false); navigate("/"); window.scrollTo({ top: 0 }); }} className={cn("flex items-center gap-3", scrolled ? "" : "bg-white/95 px-3 py-1.5 rounded")}>
           <img src={logo} alt="INDESS" className="h-8 w-auto" width={160} height={32} />
         </button>
 
@@ -45,7 +55,7 @@ const Header = () => {
           {SECTIONS.map((s) => (
             <button
               key={s.id}
-              onClick={() => go(s.id)}
+              onClick={() => go(s.id, (s as any).route)}
               className={cn(
                 "text-[11px] font-medium tracking-wide-2 uppercase transition-colors",
                 scrolled ? "text-foreground/70 hover:text-brand" : "text-white/85 hover:text-white"
@@ -57,7 +67,7 @@ const Header = () => {
         </nav>
 
         <button onClick={() => go("contact")} className="hidden lg:inline-flex items-center text-[11px] font-semibold tracking-wide-2 uppercase text-white bg-brand px-5 py-3 hover:bg-brand-deep transition-colors">
-          Get in Touch
+          Contact
         </button>
 
         <button onClick={() => setOpen((v) => !v)} className={cn("lg:hidden p-2", scrolled ? "text-foreground" : "text-white")} aria-label="Toggle menu">
@@ -69,10 +79,11 @@ const Header = () => {
         <div className="lg:hidden bg-white border-t border-border">
           <nav className="container py-4 flex flex-col">
             {SECTIONS.map((s) => (
-              <button key={s.id} onClick={() => go(s.id)} className="px-2 py-3 text-left text-sm font-medium tracking-wide-2 uppercase text-foreground/80 hover:text-brand border-b border-border">
+              <button key={s.id} onClick={() => go(s.id, (s as any).route)} className="px-2 py-3 text-left text-sm font-medium tracking-wide-2 uppercase text-foreground/80 hover:text-brand border-b border-border">
                 {s.label}
               </button>
             ))}
+            <button onClick={() => go("contact")} className="px-2 py-3 text-left text-sm font-medium tracking-wide-2 uppercase text-brand">Contact</button>
           </nav>
         </div>
       )}

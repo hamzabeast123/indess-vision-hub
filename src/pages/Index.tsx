@@ -320,6 +320,9 @@ const Index = () => {
               <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
                 Six product domains, hundreds of specifications, one standard of quality. Each category is supported by tier-one OEMs and certified to international codes.
               </p>
+              <Link to="/catalog" className="inline-flex items-center gap-3 mt-8 text-[11px] tracking-editorial uppercase font-medium text-white bg-brand px-6 py-3 hover:bg-brand-deep transition-colors">
+                View Product Catalog <ArrowUpRight size={14} />
+              </Link>
             </div>
           </div>
         </div>

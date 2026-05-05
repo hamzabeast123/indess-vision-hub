@@ -1,0 +1,181 @@
+import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, Search } from "lucide-react";
+import Layout from "@/components/layout/Layout";
+
+type Product = { name: string; sub: string };
+type Category = { n: string; title: string; subs: { name: string; products: string[] }[] };
+
+const CATEGORIES: Category[] = [
+  {
+    n: "01",
+    title: "Mechanical Solutions",
+    subs: [
+      { name: "Pumps", products: ["Centrifugal Pumps", "Positive Displacement Pumps", "Submersible Pumps", "Diaphragm Pumps", "Gear Pumps"] },
+      { name: "Valves", products: ["Ball Valves", "Gate Valves", "Globe Valves", "Check Valves", "Butterfly Valves", "Needle Valves"] },
+      { name: "Compressors", products: ["Reciprocating Compressors", "Screw Compressors", "Centrifugal Compressors"] },
+      { name: "Pipes & Fittings", products: ["Carbon Steel Pipes", "Stainless Steel Pipes", "Flanges", "Elbows & Tees", "Gaskets"] },
+      { name: "Heat Exchangers", products: ["Shell & Tube", "Plate Heat Exchangers", "Air-Cooled"] },
+    ],
+  },
+  {
+    n: "02",
+    title: "Instrumentation",
+    subs: [
+      { name: "Transmitters", products: ["Pressure Transmitters", "Flow Transmitters", "Level Transmitters", "Temperature Transmitters"] },
+      { name: "Control Systems", products: ["PLC Systems", "DCS Systems", "SCADA Systems", "HMI Panels"] },
+      { name: "Control Valves", products: ["Pneumatic Control Valves", "Electric Actuated Valves", "Pressure Regulators"] },
+      { name: "Safety & Detection", products: ["Fire Detectors", "Gas Detectors", "Flame Detectors", "Emergency Shutdown Systems"] },
+    ],
+  },
+  {
+    n: "03",
+    title: "Electrical Systems & Equipment",
+    subs: [
+      { name: "Switchgear", products: ["LV Switchgear", "MV Switchgear", "Distribution Panels", "MCC Panels"] },
+      { name: "Transformers", products: ["Power Transformers", "Distribution Transformers", "Isolation Transformers"] },
+      { name: "Motors & Drives", products: ["AC Induction Motors", "Servo Motors", "Variable Frequency Drives", "Soft Starters"] },
+      { name: "Cables & Accessories", products: ["LV Power Cables", "MV Power Cables", "Instrumentation Cables", "Cable Glands & Terminations"] },
+      { name: "Lighting & UPS", products: ["Industrial Lighting", "Hazardous Area Lighting", "UPS Systems", "Battery Banks"] },
+    ],
+  },
+  {
+    n: "04",
+    title: "Industrial Chemicals",
+    subs: [
+      { name: "Lubricants", products: ["Industrial Greases", "Hydraulic Oils", "Gear Oils", "Compressor Oils"] },
+      { name: "Treatment Chemicals", products: ["Corrosion Inhibitors", "Scale Inhibitors", "Biocides", "Demulsifiers"] },
+      { name: "Drilling Fluids", products: ["Water-Based Mud", "Oil-Based Mud", "Completion Fluids"] },
+      { name: "Cleaning Chemicals", products: ["Degreasers", "Solvents", "Tank Cleaning Agents"] },
+    ],
+  },
+  {
+    n: "05",
+    title: "Marine Products",
+    subs: [
+      { name: "VLCC & VLCs Equipment", products: ["Marine Pumps", "Cargo Handling Systems", "Inert Gas Systems", "Tank Cleaning Systems"] },
+      { name: "Deck Equipment", products: ["Mooring Winches", "Anchor Windlasses", "Cranes & Davits"] },
+      { name: "Engine Room", products: ["Marine Generators", "Boilers", "Heat Exchangers", "Separators"] },
+      { name: "Safety & Navigation", products: ["Life Saving Appliances", "Navigation Lights", "Communication Systems"] },
+    ],
+  },
+];
+
+const Catalog = () => {
+  const [q, setQ] = useState("");
+  const [active, setActive] = useState<string>("all");
+
+  const filtered = useMemo(() => {
+    const term = q.trim().toLowerCase();
+    return CATEGORIES.filter((c) => active === "all" || c.title === active)
+      .map((c) => ({
+        ...c,
+        subs: c.subs
+          .map((s) => ({ ...s, products: s.products.filter((p) => !term || p.toLowerCase().includes(term) || s.name.toLowerCase().includes(term)) }))
+          .filter((s) => s.products.length > 0),
+      }))
+      .filter((c) => c.subs.length > 0);
+  }, [q, active]);
+
+  return (
+    <Layout>
+      {/* Hero */}
+      <section className="pt-32 pb-16 bg-brand-soft border-b border-border">
+        <div className="container">
+          <Link to="/" className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase text-muted-foreground hover:text-brand mb-10">
+            <ArrowLeft size={14} /> Back to Home
+          </Link>
+          <div className="grid lg:grid-cols-12 gap-12 items-end">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-[11px] tracking-editorial uppercase text-gold font-medium">Catalog</span>
+                <span className="h-px w-10 rule-gold" />
+                <span className="text-[11px] tracking-editorial uppercase text-foreground/60">Product Reference</span>
+              </div>
+              <h1 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
+                Product Catalog
+              </h1>
+              <p className="mt-6 text-[15px] text-muted-foreground leading-[1.8] font-light max-w-xl">
+                Browse our complete range of industrial equipment organized by category and sub-category. For pricing and availability, please contact our sales team.
+              </p>
+            </div>
+            <div className="lg:col-span-5">
+              <div className="relative">
+                <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <input
+                  value={q}
+                  onChange={(e) => setQ(e.target.value)}
+                  placeholder="Search products..."
+                  className="w-full bg-white border border-border pl-11 pr-4 py-4 text-sm font-light focus:outline-none focus:border-brand"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Category filter */}
+      <section className="sticky top-20 z-30 bg-white border-b border-border">
+        <div className="container py-4 flex gap-2 overflow-x-auto">
+          {["all", ...CATEGORIES.map((c) => c.title)].map((c) => (
+            <button
+              key={c}
+              onClick={() => setActive(c)}
+              className={`shrink-0 px-4 py-2 text-[11px] tracking-editorial uppercase border transition-colors ${
+                active === c ? "bg-brand text-white border-brand" : "bg-white text-foreground/70 border-border hover:border-brand hover:text-brand"
+              }`}
+            >
+              {c === "all" ? "All Categories" : c}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Listing */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="container space-y-24">
+          {filtered.length === 0 && (
+            <p className="text-center text-muted-foreground font-light py-20">No products match your search.</p>
+          )}
+          {filtered.map((cat) => (
+            <div key={cat.title}>
+              <div className="flex items-baseline gap-6 mb-12 pb-6 border-b border-border">
+                <span className="text-[11px] tracking-editorial uppercase text-gold">{cat.n}</span>
+                <h2 className="font-display-light text-4xl md:text-5xl tracking-tight">{cat.title}</h2>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+                {cat.subs.map((sub) => (
+                  <div key={sub.name} className="bg-white p-8">
+                    <h3 className="font-display-light text-xl mb-2">{sub.name}</h3>
+                    <div className="h-px w-10 rule-gold mb-5" />
+                    <ul className="space-y-2.5">
+                      {sub.products.map((p) => (
+                        <li key={p} className="text-[13px] text-foreground/75 font-light flex items-start gap-3">
+                          <span className="mt-2 h-1 w-1 bg-gold shrink-0" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-[hsl(210_100%_8%)] text-white">
+        <div className="container text-center">
+          <p className="text-[11px] tracking-editorial uppercase text-gold mb-6">Need Specifications or Pricing?</p>
+          <h2 className="font-display-light text-3xl md:text-5xl mb-8">Speak with our technical team.</h2>
+          <Link to="/#contact" className="inline-flex items-center gap-3 text-[11px] tracking-editorial uppercase text-foreground bg-gold px-8 py-4 hover:bg-white transition-colors">
+            Request a Quote
+          </Link>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default Catalog;

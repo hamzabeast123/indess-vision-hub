@@ -61,11 +61,21 @@ const products = [
 
 const brands = ["GE", "Mitsubishi", "Schneider", "Honeywell", "Omron", "ABB", "Fanuc", "Eaton", "Bosch", "Lenze", "Banner", "Siemens"];
 const partners = [
-  { name: "TriOS", role: "Water & Process Sensing — Germany" },
-  { name: "Hanyoung", role: "Industrial Valves — South Korea" },
-  { name: "Himile", role: "Engineering Solutions — China" },
+  { name: "Dongeun Valve", role: "Industrial Valves — South Korea" },
+  { name: "Himile Mechanical", role: "Precision Engineering — China" },
+  { name: "Wooju Gaspack", role: "Gas Handling Systems — South Korea" },
+  { name: "HS Valve", role: "Valves & Pipeline — South Korea" },
+  { name: "Horizon Water", role: "Water Treatment — China" },
+  { name: "Cangzhou Hongding", role: "Pipes & Fittings — China" },
 ];
 const clients = ["NMDC", "ADNOC", "Borouge", "NPCC", "DEWA", "EWEC", "G42", "DP World", "Fertiglobe", "Abu Dhabi Ports", "Oman Drydock", "GMS"];
+
+const regions = [
+  { region: "Middle East", countries: ["United Arab Emirates", "Oman", "Qatar", "Kuwait", "Bahrain", "Saudi Arabia"] },
+  { region: "Europe", countries: ["United Kingdom", "Estonia"] },
+  { region: "Americas", countries: ["United States"] },
+  { region: "Asia Pacific", countries: ["South Korea", "Japan"] },
+];
 
 // ───────────────────────── Page ─────────────────────────
 const Index = () => {

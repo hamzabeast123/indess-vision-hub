@@ -8,7 +8,8 @@ const SECTIONS = [
   { id: "company", label: "Company" },
   { id: "expertise", label: "Expertise" },
   { id: "catalog", label: "Catalog", route: "/catalog" },
-  { id: "partners", label: "Partners" },
+  { id: "partners", label: "Partners", route: "/partners" },
+  { id: "clients", label: "Clients", route: "/clients" },
 ];
 
 const Header = () => {

@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import Layout from "@/components/layout/Layout";
+import Reveal from "@/components/Reveal";
+import ParticleGlobe, { GlobePin } from "@/components/ParticleGlobe";
+import PartnerLogo from "@/components/PartnerLogo";
 import hero from "@/assets/cin-hero.jpg";
 import imgMechanical from "@/assets/cin-mechanical.jpg";
 import imgElectrical from "@/assets/cin-electrical.jpg";
@@ -75,6 +78,20 @@ const regions = [
   { region: "Europe", countries: ["United Kingdom", "Estonia"] },
   { region: "Americas", countries: ["United States"] },
   { region: "Asia Pacific", countries: ["South Korea", "Japan"] },
+];
+
+const globePins: GlobePin[] = [
+  { name: "UAE", lat: 24.4539, lon: 54.3773, flag: "🇦🇪" },
+  { name: "Oman", lat: 23.5859, lon: 58.4059, flag: "🇴🇲" },
+  { name: "Qatar", lat: 25.2854, lon: 51.5310, flag: "🇶🇦" },
+  { name: "Kuwait", lat: 29.3759, lon: 47.9774, flag: "🇰🇼" },
+  { name: "Bahrain", lat: 26.0667, lon: 50.5577, flag: "🇧🇭" },
+  { name: "KSA", lat: 24.7136, lon: 46.6753, flag: "🇸🇦" },
+  { name: "UK", lat: 51.5074, lon: -0.1278, flag: "🇬🇧" },
+  { name: "USA", lat: 38.9072, lon: -77.0369, flag: "🇺🇸" },
+  { name: "Estonia", lat: 59.4370, lon: 24.7536, flag: "🇪🇪" },
+  { name: "S. Korea", lat: 37.5665, lon: 126.9780, flag: "🇰🇷" },
+  { name: "Japan", lat: 35.6762, lon: 139.6503, flag: "🇯🇵" },
 ];
 
 // ───────────────────────── Page ─────────────────────────
@@ -218,7 +235,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {industries.map((i) => (
-              <div key={i.title} className="bg-white group">
+              <Reveal key={i.title} delay={Number(i.n) * 60} className="bg-white group block">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img src={i.img} alt={i.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={1280} height={960} />
                 </div>
@@ -231,7 +248,7 @@ const Index = () => {
                   <h3 className="font-display-light text-3xl mb-3">{i.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed font-light">{i.copy}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -341,7 +358,7 @@ const Index = () => {
           {products.map((p, i) => {
             const reverse = i % 2 === 1;
             return (
-              <div key={p.n} className="container">
+              <Reveal key={p.n} className="container block" y={48}>
                 <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
                   <div className="lg:col-span-7">
                     <div className="relative aspect-[4/3] overflow-hidden bg-foreground/5">
@@ -369,7 +386,7 @@ const Index = () => {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -421,19 +438,21 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
             {partners.map((p, i) => (
-              <Link
-                to="/partners"
-                key={p.name}
-                className="bg-white p-10 lg:p-12 group hover:bg-brand-soft transition-colors"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
-                  <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
-                </div>
-                <h3 className="font-display-light text-2xl md:text-3xl mb-4 leading-tight group-hover:text-brand transition-colors">{p.name}</h3>
-                <div className="h-px w-12 rule-gold mb-4" />
-                <p className="text-sm text-muted-foreground font-light">{p.role}</p>
-              </Link>
+              <Reveal key={p.name} delay={i * 80}>
+                <Link
+                  to="/partners"
+                  className="bg-white p-10 lg:p-12 group hover:bg-brand-soft transition-colors block h-full"
+                >
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
+                    <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
+                  </div>
+                  <PartnerLogo name={p.name} className="mb-6" />
+                  <h3 className="font-display-light text-2xl md:text-[1.65rem] mb-4 leading-tight group-hover:text-brand transition-colors">{p.name}</h3>
+                  <div className="h-px w-12 rule-gold mb-4" />
+                  <p className="text-sm text-muted-foreground font-light">{p.role}</p>
+                </Link>
+              </Reveal>
             ))}
           </div>
 
@@ -455,51 +474,69 @@ const Index = () => {
       </section>
 
       {/* ═══════════ 08b · WORLDWIDE PRESENCE ═══════════ */}
-      <section id="presence" className="relative py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+      <section id="presence" className="relative py-32 lg:py-40 bg-[hsl(210_100%_8%)] text-white overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210_100%_6%)] via-transparent to-[hsl(210_100%_6%)]" />
         <div className="container relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-6">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">08</span>
-                <span className="h-px w-10 rule-gold" />
-                <span className="text-[11px] tracking-editorial uppercase text-white/60">Worldwide Presence</span>
+          <Reveal>
+            <div className="grid lg:grid-cols-12 gap-12 mb-16">
+              <div className="lg:col-span-6">
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="text-[11px] tracking-editorial uppercase text-gold">08</span>
+                  <span className="h-px w-10 rule-gold" />
+                  <span className="text-[11px] tracking-editorial uppercase text-white/60">Worldwide Presence</span>
+                </div>
+                <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
+                  A global footprint,<br />locally delivered.
+                </h2>
               </div>
-              <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
-                A global footprint, locally delivered.
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
-              <p className="text-[15px] text-white/65 leading-[1.8] font-light">
-                From the GCC to Europe, the Americas and Asia Pacific — INDESS operates across eleven countries, supporting clients with sourcing, logistics and after-sales presence wherever their projects demand.
-              </p>
-              <div className="mt-10 grid grid-cols-3 gap-6">
-                {[["11", "Countries"], ["4", "Regions"], ["24/7", "Support"]].map(([n, l]) => (
-                  <div key={l}>
-                    <div className="font-display-light text-4xl text-gold">{n}</div>
-                    <div className="text-[10px] tracking-editorial uppercase text-white/50 mt-1">{l}</div>
-                  </div>
-                ))}
+              <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
+                <p className="text-[15px] text-white/65 leading-[1.8] font-light">
+                  From the GCC to Europe, the Americas and Asia Pacific — INDESS operates across eleven countries, supporting clients with sourcing, logistics and after-sales presence wherever their projects demand.
+                </p>
+                <div className="mt-10 grid grid-cols-3 gap-6">
+                  {[["11", "Countries"], ["4", "Regions"], ["24/7", "Support"]].map(([n, l]) => (
+                    <div key={l}>
+                      <div className="font-display-light text-4xl text-gold">{n}</div>
+                      <div className="text-[10px] tracking-editorial uppercase text-white/50 mt-1">{l}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
+
+          {/* Particle globe */}
+          <Reveal delay={120}>
+            <div className="relative my-12 lg:my-16 border border-white/10 bg-[hsl(210_100%_5%)]/60">
+              <div className="absolute top-5 left-5 z-10 flex items-center gap-3 text-[10px] tracking-editorial uppercase text-gold">
+                <span className="h-px w-6 bg-gold" /> Live Atlas · INDESS Network
+              </div>
+              <div className="absolute top-5 right-5 z-10 text-[10px] tracking-editorial uppercase text-white/40">
+                Drag to rotate
+              </div>
+              <ParticleGlobe pins={globePins} className="h-[440px] md:h-[560px] lg:h-[640px]" />
+            </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
             {regions.map((r, i) => (
-              <div key={r.region} className="bg-[hsl(210_100%_10%)] p-10">
-                <div className="flex items-baseline gap-3 mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">R/{String(i + 1).padStart(2, "0")}</span>
-                  <span className="h-px flex-1 bg-white/15" />
+              <Reveal key={r.region} delay={i * 90}>
+                <div className="bg-[hsl(210_100%_8%)] p-10 h-full">
+                  <div className="flex items-baseline gap-3 mb-6">
+                    <span className="text-[11px] tracking-editorial uppercase text-gold">R/{String(i + 1).padStart(2, "0")}</span>
+                    <span className="h-px flex-1 bg-white/15" />
+                  </div>
+                  <h3 className="font-display-light text-3xl mb-6 text-white">{r.region}</h3>
+                  <ul className="space-y-3">
+                    {r.countries.map((c) => (
+                      <li key={c} className="flex items-center gap-3 text-[13px] text-white/75 font-light">
+                        <MapPin size={13} className="text-gold shrink-0" /> {c}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="font-display-light text-3xl mb-6 text-white">{r.region}</h3>
-                <ul className="space-y-3">
-                  {r.countries.map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[13px] text-white/75 font-light">
-                      <MapPin size={13} className="text-gold shrink-0" /> {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

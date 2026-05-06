@@ -1,6 +1,8 @@
 import { ArrowUpRight, MapPin, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
+import Reveal from "@/components/Reveal";
+import PartnerLogo from "@/components/PartnerLogo";
 import imgMechanical from "@/assets/cin-mechanical.jpg";
 import imgProcess from "@/assets/cin-process.jpg";
 import imgManufacturing from "@/assets/cin-manufacturing.jpg";
@@ -112,6 +114,13 @@ const Partners = () => {
           <p className="mt-8 max-w-2xl text-[15px] text-white/70 leading-[1.8] font-light">
             INDESS partners with a curated network of manufacturers across Asia and Europe — each chosen for engineering excellence, certification rigour and proven field reliability.
           </p>
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10 border border-white/10">
+            {partners.map((p) => (
+              <div key={p.n} className="bg-[hsl(210_100%_8%)] p-5 flex items-center justify-center">
+                <PartnerLogo name={p.name} className="[&_div:first-child]:bg-transparent" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -121,7 +130,7 @@ const Partners = () => {
           {partners.map((p, i) => {
             const reverse = i % 2 === 1;
             return (
-              <div key={p.n} className="container">
+              <Reveal key={p.n} className="container block" y={48}>
                 <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
                   <div className="lg:col-span-7">
                     <div className="relative aspect-[4/3] overflow-hidden bg-foreground/5">
@@ -129,6 +138,9 @@ const Partners = () => {
                       <div className="absolute inset-0 bg-brand/5 mix-blend-multiply" />
                       <div className="absolute top-6 left-6 bg-white px-4 py-2">
                         <span className="text-[10px] tracking-editorial uppercase text-gold">{p.n}</span>
+                      </div>
+                      <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur px-5 py-3">
+                        <PartnerLogo name={p.name} />
                       </div>
                     </div>
                   </div>
@@ -151,7 +163,7 @@ const Partners = () => {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

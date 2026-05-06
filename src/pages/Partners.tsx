@@ -114,6 +114,13 @@ const Partners = () => {
           <p className="mt-8 max-w-2xl text-[15px] text-white/70 leading-[1.8] font-light">
             INDESS partners with a curated network of manufacturers across Asia and Europe — each chosen for engineering excellence, certification rigour and proven field reliability.
           </p>
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10 border border-white/10">
+            {partners.map((p) => (
+              <div key={p.n} className="bg-[hsl(210_100%_8%)] p-5 flex items-center justify-center">
+                <PartnerLogo name={p.name} className="[&_div:first-child]:bg-transparent" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

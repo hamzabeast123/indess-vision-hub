@@ -21,7 +21,7 @@ const PartnerLogo = ({ name, className = "" }: Props) => {
         </div>
       </div>
       <div className="leading-tight">
-        <div className="font-display-light text-base tracking-wide-2 uppercase text-foreground">{tag}</div>
+        <div className="font-display-light text-base tracking-wide-2 uppercase">{tag}</div>
         <div className="text-[9px] tracking-editorial uppercase text-gold">Engineered Partner</div>
       </div>
     </div>

@@ -438,19 +438,21 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
             {partners.map((p, i) => (
-              <Link
-                to="/partners"
-                key={p.name}
-                className="bg-white p-10 lg:p-12 group hover:bg-brand-soft transition-colors"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
-                  <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
-                </div>
-                <h3 className="font-display-light text-2xl md:text-3xl mb-4 leading-tight group-hover:text-brand transition-colors">{p.name}</h3>
-                <div className="h-px w-12 rule-gold mb-4" />
-                <p className="text-sm text-muted-foreground font-light">{p.role}</p>
-              </Link>
+              <Reveal key={p.name} delay={i * 80}>
+                <Link
+                  to="/partners"
+                  className="bg-white p-10 lg:p-12 group hover:bg-brand-soft transition-colors block h-full"
+                >
+                  <div className="flex items-center justify-between mb-8">
+                    <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
+                    <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
+                  </div>
+                  <PartnerLogo name={p.name} className="mb-6" />
+                  <h3 className="font-display-light text-2xl md:text-[1.65rem] mb-4 leading-tight group-hover:text-brand transition-colors">{p.name}</h3>
+                  <div className="h-px w-12 rule-gold mb-4" />
+                  <p className="text-sm text-muted-foreground font-light">{p.role}</p>
+                </Link>
+              </Reveal>
             ))}
           </div>
 

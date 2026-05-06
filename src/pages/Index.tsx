@@ -3,6 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import Layout from "@/components/layout/Layout";
+import Reveal from "@/components/Reveal";
+import ParticleGlobe, { GlobePin } from "@/components/ParticleGlobe";
+import PartnerLogo from "@/components/PartnerLogo";
 import hero from "@/assets/cin-hero.jpg";
 import imgMechanical from "@/assets/cin-mechanical.jpg";
 import imgElectrical from "@/assets/cin-electrical.jpg";
@@ -75,6 +78,20 @@ const regions = [
   { region: "Europe", countries: ["United Kingdom", "Estonia"] },
   { region: "Americas", countries: ["United States"] },
   { region: "Asia Pacific", countries: ["South Korea", "Japan"] },
+];
+
+const globePins: GlobePin[] = [
+  { name: "UAE", lat: 24.4539, lon: 54.3773, flag: "🇦🇪" },
+  { name: "Oman", lat: 23.5859, lon: 58.4059, flag: "🇴🇲" },
+  { name: "Qatar", lat: 25.2854, lon: 51.5310, flag: "🇶🇦" },
+  { name: "Kuwait", lat: 29.3759, lon: 47.9774, flag: "🇰🇼" },
+  { name: "Bahrain", lat: 26.0667, lon: 50.5577, flag: "🇧🇭" },
+  { name: "KSA", lat: 24.7136, lon: 46.6753, flag: "🇸🇦" },
+  { name: "UK", lat: 51.5074, lon: -0.1278, flag: "🇬🇧" },
+  { name: "USA", lat: 38.9072, lon: -77.0369, flag: "🇺🇸" },
+  { name: "Estonia", lat: 59.4370, lon: 24.7536, flag: "🇪🇪" },
+  { name: "S. Korea", lat: 37.5665, lon: 126.9780, flag: "🇰🇷" },
+  { name: "Japan", lat: 35.6762, lon: 139.6503, flag: "🇯🇵" },
 ];
 
 // ───────────────────────── Page ─────────────────────────

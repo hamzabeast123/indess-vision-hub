@@ -358,7 +358,7 @@ const Index = () => {
           {products.map((p, i) => {
             const reverse = i % 2 === 1;
             return (
-              <div key={p.n} className="container">
+              <Reveal key={p.n} className="container block" y={48}>
                 <div className={`grid lg:grid-cols-12 gap-10 lg:gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
                   <div className="lg:col-span-7">
                     <div className="relative aspect-[4/3] overflow-hidden bg-foreground/5">
@@ -386,7 +386,7 @@ const Index = () => {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

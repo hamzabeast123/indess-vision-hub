@@ -235,7 +235,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {industries.map((i) => (
-              <div key={i.title} className="bg-white group">
+              <Reveal key={i.title} delay={Number(i.n) * 60} className="bg-white group block">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img src={i.img} alt={i.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={1280} height={960} />
                 </div>
@@ -248,7 +248,7 @@ const Index = () => {
                   <h3 className="font-display-light text-3xl mb-3">{i.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed font-light">{i.copy}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

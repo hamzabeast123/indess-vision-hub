@@ -474,51 +474,69 @@ const Index = () => {
       </section>
 
       {/* ═══════════ 08b · WORLDWIDE PRESENCE ═══════════ */}
-      <section id="presence" className="relative py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+      <section id="presence" className="relative py-32 lg:py-40 bg-[hsl(210_100%_8%)] text-white overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210_100%_6%)] via-transparent to-[hsl(210_100%_6%)]" />
         <div className="container relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-6">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">08</span>
-                <span className="h-px w-10 rule-gold" />
-                <span className="text-[11px] tracking-editorial uppercase text-white/60">Worldwide Presence</span>
+          <Reveal>
+            <div className="grid lg:grid-cols-12 gap-12 mb-16">
+              <div className="lg:col-span-6">
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="text-[11px] tracking-editorial uppercase text-gold">08</span>
+                  <span className="h-px w-10 rule-gold" />
+                  <span className="text-[11px] tracking-editorial uppercase text-white/60">Worldwide Presence</span>
+                </div>
+                <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
+                  A global footprint,<br />locally delivered.
+                </h2>
               </div>
-              <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
-                A global footprint, locally delivered.
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
-              <p className="text-[15px] text-white/65 leading-[1.8] font-light">
-                From the GCC to Europe, the Americas and Asia Pacific — INDESS operates across eleven countries, supporting clients with sourcing, logistics and after-sales presence wherever their projects demand.
-              </p>
-              <div className="mt-10 grid grid-cols-3 gap-6">
-                {[["11", "Countries"], ["4", "Regions"], ["24/7", "Support"]].map(([n, l]) => (
-                  <div key={l}>
-                    <div className="font-display-light text-4xl text-gold">{n}</div>
-                    <div className="text-[10px] tracking-editorial uppercase text-white/50 mt-1">{l}</div>
-                  </div>
-                ))}
+              <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
+                <p className="text-[15px] text-white/65 leading-[1.8] font-light">
+                  From the GCC to Europe, the Americas and Asia Pacific — INDESS operates across eleven countries, supporting clients with sourcing, logistics and after-sales presence wherever their projects demand.
+                </p>
+                <div className="mt-10 grid grid-cols-3 gap-6">
+                  {[["11", "Countries"], ["4", "Regions"], ["24/7", "Support"]].map(([n, l]) => (
+                    <div key={l}>
+                      <div className="font-display-light text-4xl text-gold">{n}</div>
+                      <div className="text-[10px] tracking-editorial uppercase text-white/50 mt-1">{l}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
+
+          {/* Particle globe */}
+          <Reveal delay={120}>
+            <div className="relative my-12 lg:my-16 border border-white/10 bg-[hsl(210_100%_5%)]/60">
+              <div className="absolute top-5 left-5 z-10 flex items-center gap-3 text-[10px] tracking-editorial uppercase text-gold">
+                <span className="h-px w-6 bg-gold" /> Live Atlas · INDESS Network
+              </div>
+              <div className="absolute top-5 right-5 z-10 text-[10px] tracking-editorial uppercase text-white/40">
+                Drag to rotate
+              </div>
+              <ParticleGlobe pins={globePins} className="h-[440px] md:h-[560px] lg:h-[640px]" />
+            </div>
+          </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
             {regions.map((r, i) => (
-              <div key={r.region} className="bg-[hsl(210_100%_10%)] p-10">
-                <div className="flex items-baseline gap-3 mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">R/{String(i + 1).padStart(2, "0")}</span>
-                  <span className="h-px flex-1 bg-white/15" />
+              <Reveal key={r.region} delay={i * 90}>
+                <div className="bg-[hsl(210_100%_8%)] p-10 h-full">
+                  <div className="flex items-baseline gap-3 mb-6">
+                    <span className="text-[11px] tracking-editorial uppercase text-gold">R/{String(i + 1).padStart(2, "0")}</span>
+                    <span className="h-px flex-1 bg-white/15" />
+                  </div>
+                  <h3 className="font-display-light text-3xl mb-6 text-white">{r.region}</h3>
+                  <ul className="space-y-3">
+                    {r.countries.map((c) => (
+                      <li key={c} className="flex items-center gap-3 text-[13px] text-white/75 font-light">
+                        <MapPin size={13} className="text-gold shrink-0" /> {c}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="font-display-light text-3xl mb-6 text-white">{r.region}</h3>
-                <ul className="space-y-3">
-                  {r.countries.map((c) => (
-                    <li key={c} className="flex items-center gap-3 text-[13px] text-white/75 font-light">
-                      <MapPin size={13} className="text-gold shrink-0" /> {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

@@ -405,31 +405,102 @@ const Index = () => {
       {/* ═══════════ 08 · PARTNERS ═══════════ */}
       <section id="partners" className="py-32 lg:py-40 bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
+          <div className="grid lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-6">
               <SectionLabel n="07" label="Partners" />
               <DisplayH>Engineered alliances with global specialists.</DisplayH>
             </div>
+            <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
+              <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
+                A curated network of manufacturers across Asia and Europe — each chosen for engineering excellence, certification rigour and proven field reliability.
+              </p>
+              <Link to="/partners" className="inline-flex items-center gap-3 mt-8 text-[11px] tracking-editorial uppercase font-medium text-white bg-brand px-6 py-3 hover:bg-brand-deep transition-colors">
+                View All Partners <ArrowUpRight size={14} />
+              </Link>
+            </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-px bg-border">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
             {partners.map((p, i) => (
-              <div key={p.name} className="bg-white p-10 lg:p-14">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="font-display-light text-4xl md:text-5xl mt-6 mb-4">{p.name}</h3>
+              <Link
+                to="/partners"
+                key={p.name}
+                className="bg-white p-10 lg:p-12 group hover:bg-brand-soft transition-colors"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
+                  <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
+                </div>
+                <h3 className="font-display-light text-2xl md:text-3xl mb-4 leading-tight group-hover:text-brand transition-colors">{p.name}</h3>
                 <div className="h-px w-12 rule-gold mb-4" />
                 <p className="text-sm text-muted-foreground font-light">{p.role}</p>
-              </div>
+              </Link>
             ))}
           </div>
 
           {/* Clients sub-section */}
           <div className="mt-24 pt-16 border-t border-border">
-            <p className="text-[10px] tracking-editorial uppercase text-gold mb-8">Selected Clients</p>
+            <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
+              <p className="text-[10px] tracking-editorial uppercase text-gold">Selected Clients</p>
+              <Link to="/clients" className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase text-foreground/70 hover:text-brand transition-colors">
+                View All Clients <ArrowUpRight size={13} />
+              </Link>
+            </div>
             <div className="flex flex-wrap gap-x-10 gap-y-5">
               {clients.map((c) => (
                 <span key={c} className="font-display-light text-2xl md:text-3xl text-foreground/55 hover:text-brand transition-colors">{c}</span>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ 08b · WORLDWIDE PRESENCE ═══════════ */}
+      <section id="presence" className="relative py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="container relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 mb-20">
+            <div className="lg:col-span-6">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-[11px] tracking-editorial uppercase text-gold">08</span>
+                <span className="h-px w-10 rule-gold" />
+                <span className="text-[11px] tracking-editorial uppercase text-white/60">Worldwide Presence</span>
+              </div>
+              <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
+                A global footprint, locally delivered.
+              </h2>
+            </div>
+            <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
+              <p className="text-[15px] text-white/65 leading-[1.8] font-light">
+                From the GCC to Europe, the Americas and Asia Pacific — INDESS operates across eleven countries, supporting clients with sourcing, logistics and after-sales presence wherever their projects demand.
+              </p>
+              <div className="mt-10 grid grid-cols-3 gap-6">
+                {[["11", "Countries"], ["4", "Regions"], ["24/7", "Support"]].map(([n, l]) => (
+                  <div key={l}>
+                    <div className="font-display-light text-4xl text-gold">{n}</div>
+                    <div className="text-[10px] tracking-editorial uppercase text-white/50 mt-1">{l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+            {regions.map((r, i) => (
+              <div key={r.region} className="bg-[hsl(210_100%_10%)] p-10">
+                <div className="flex items-baseline gap-3 mb-6">
+                  <span className="text-[11px] tracking-editorial uppercase text-gold">R/{String(i + 1).padStart(2, "0")}</span>
+                  <span className="h-px flex-1 bg-white/15" />
+                </div>
+                <h3 className="font-display-light text-3xl mb-6 text-white">{r.region}</h3>
+                <ul className="space-y-3">
+                  {r.countries.map((c) => (
+                    <li key={c} className="flex items-center gap-3 text-[13px] text-white/75 font-light">
+                      <MapPin size={13} className="text-gold shrink-0" /> {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>

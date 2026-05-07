@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight, Search } from "lucide-react";
 import Layout from "@/components/layout/Layout";
 import imgPumps from "@/assets/catalog/pumps.jpg";
 import imgValves from "@/assets/catalog/valves.jpg";
@@ -189,6 +189,12 @@ const Catalog = () => {
                           </li>
                         ))}
                       </ul>
+                      <Link
+                        to={`/catalog/${sub.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
+                        className="mt-6 inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase text-brand hover:text-gold transition-colors self-start group/link"
+                      >
+                        View All <ArrowRight size={14} className="transition-transform group-hover/link:translate-x-1" />
+                      </Link>
                     </div>
                   </div>
                 ))}

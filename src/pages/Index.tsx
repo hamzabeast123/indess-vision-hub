@@ -6,7 +6,7 @@ import Layout from "@/components/layout/Layout";
 import Reveal from "@/components/Reveal";
 import ParticleGlobe, { GlobePin } from "@/components/ParticleGlobe";
 import PartnerLogo from "@/components/PartnerLogo";
-import hero from "@/assets/cin-hero.jpg";
+import HeroCarousel from "@/components/HeroCarousel";
 import imgMechanical from "@/assets/cin-mechanical.jpg";
 import imgElectrical from "@/assets/cin-electrical.jpg";
 import imgInstrumentation from "@/assets/cin-instrumentation.jpg";
@@ -108,43 +108,7 @@ const Index = () => {
       <div id="top" />
 
       {/* ═══════════ 01 · COVER ═══════════ */}
-      <section className="relative min-h-screen flex items-end overflow-hidden">
-        <img src={hero} alt="Offshore platform at blue hour" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(210_100%_8%)] via-[hsl(210_100%_8%)]/55 to-[hsl(210_100%_8%)]/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(207_100%_20%)]/40 to-transparent" />
-
-        {/* top editorial bar */}
-        <div className="absolute top-24 inset-x-0 z-10">
-          <div className="container flex items-center justify-between text-white/70 text-[10px] tracking-editorial uppercase">
-            <span>Company Profile · MMXXV</span>
-            <span className="hidden md:inline">Abu Dhabi · United Arab Emirates</span>
-          </div>
-        </div>
-
-        <div className="container relative z-10 pb-24 md:pb-32">
-          <div className="grid lg:grid-cols-12 gap-8 items-end">
-            <div className="lg:col-span-8 text-white">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">Volume I</span>
-                <span className="h-px w-12 rule-gold" />
-                <span className="text-[11px] tracking-editorial uppercase text-white/60">Industrial Energy Supply</span>
-              </div>
-              <h1 className="font-display-light text-[clamp(2.75rem,7vw,6.5rem)] leading-[0.95] text-white tracking-tight mb-8">
-                Engineering<br />
-                the foundations of<br />
-                <span className="italic font-light text-gold">industry.</span>
-              </h1>
-              <p className="text-base md:text-lg text-white/75 max-w-xl font-light leading-relaxed">
-                INDESS is a precision supplier of mission-critical equipment to the oil &amp; gas, petrochemical, power and marine sectors — sourced globally, delivered locally.
-              </p>
-            </div>
-            <div className="lg:col-span-4 lg:pl-12 lg:border-l lg:border-white/15 text-white/80 text-[12px] leading-relaxed font-light tracking-wide">
-              <p className="text-[10px] tracking-editorial uppercase text-gold mb-3">A Note</p>
-              <p>This document presents an overview of INDESS — our industries, services, product portfolio and the partners with whom we engineer trust.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       {/* ═══════════ 02 · COMPANY ═══════════ */}
       <section id="company" className="py-32 lg:py-40 bg-white">

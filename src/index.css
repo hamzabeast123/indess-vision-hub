@@ -146,6 +146,46 @@
   }
   .animate-fade-up { animation: fade-up 0.7s var(--transition-smooth) both; }
   .animate-fade-in { animation: fade-in 0.8s ease-out both; }
+
+  /* ===== Immersive scroll-reveal system ===== */
+  [data-anim] {
+    opacity: 0;
+    will-change: transform, opacity, filter;
+    transition:
+      opacity 1100ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1100ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  [data-anim="up"]      { transform: translate3d(0, 48px, 0); }
+  [data-anim="down"]    { transform: translate3d(0, -36px, 0); }
+  [data-anim="left"]    { transform: translate3d(48px, 0, 0); }
+  [data-anim="right"]   { transform: translate3d(-48px, 0, 0); }
+  [data-anim="zoom"]    { transform: scale(0.94); filter: blur(6px); }
+  [data-anim="reveal"]  { transform: translate3d(0, 60px, 0); filter: blur(8px); }
+  [data-anim="image"]   { transform: scale(1.08); filter: blur(10px) brightness(0.9); }
+  [data-anim].is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: none;
+  }
+
+  /* Smooth long-form scroll feel */
+  html { scroll-behavior: smooth; }
+
+  /* Top scroll progress bar */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; height: 2px; width: 100%;
+    transform-origin: 0 50%;
+    transform: scaleX(var(--sp, 0));
+    background: linear-gradient(90deg, hsl(var(--brand)), hsl(var(--gold)));
+    z-index: 60; pointer-events: none;
+    transition: transform 80ms linear;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim] { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
 }
 
 @keyframes fade-up {

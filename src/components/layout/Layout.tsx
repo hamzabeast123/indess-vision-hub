@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import ScrollAnimator from "@/components/ScrollAnimator";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const { pathname } = useLocation();
@@ -10,6 +11,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   }, [pathname]);
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollAnimator />
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />

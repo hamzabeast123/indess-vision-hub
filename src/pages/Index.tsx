@@ -54,6 +54,14 @@ const services = [
   { n: "S/04", title: "After-Sales Support", copy: "Spares continuity, warranty handling and field-service coordination over the asset lifecycle." },
 ];
 
+const expertise = [
+  { n: "E/01", title: "Mechanical", copy: "Pumps, valves, compressors, heat exchangers and rotating equipment engineered for high-pressure service." },
+  { n: "E/02", title: "Instrumentation", copy: "Field instruments, control systems and safety detection that deliver plant-wide visibility." },
+  { n: "E/03", title: "Electrical", copy: "LV/MV switchgear, transformers, motors and drives — designed for continuous industrial duty." },
+  { n: "E/04", title: "Industrial Chemicals", copy: "Lubricants, drilling fluids and treatment chemicals supporting refineries and offshore operations." },
+  { n: "E/05", title: "Marine", copy: "Specialised supply for VLCs and VLCCs — pumps, valves and onboard systems for the harshest environments." },
+];
+
 const products = [
   { n: "P/01", title: "Mechanical Solutions", img: imgMechanical, copy: "A wide array of mechanical components and systems designed to ensure optimal performance and reliability across high-pressure service environments.", items: ["Centrifugal & Positive Displacement Pumps", "Ball, Gate, Globe & Check Valves", "Compressors & Heat Exchangers", "Flanges, Fittings & Gaskets"] },
   { n: "P/02", title: "Instrumentation", img: imgInstrumentation, copy: "Precision instruments that provide accurate measurements and control for critical processes — engineered for plant-wide visibility and safety.", items: ["Pressure, Flow & Level Transmitters", "PLC, DCS & SCADA Systems", "Control Valves & Actuators", "Safety & Fire-Gas Detection"] },
@@ -182,7 +190,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════ 05 · SERVICES (cinematic split) ═══════════ */}
+      {/* ═══════════ 03 · SERVICES (cinematic split) ═══════════ */}
       <section id="services" className="relative py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-25">
           <img src={imgProcess} alt="" className="w-full h-full object-cover" width={1920} height={1080} loading="lazy" />
@@ -192,7 +200,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-12 gap-12 mb-20">
             <div className="lg:col-span-6">
               <div className="flex items-center gap-4 mb-8">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">04</span>
+                <span className="text-[11px] tracking-editorial uppercase text-gold">03</span>
                 <span className="h-px w-10 rule-gold" />
                 <span className="text-[11px] tracking-editorial uppercase text-white/60">Our Services</span>
               </div>
@@ -221,13 +229,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════ 06 · PRODUCTS (one editorial spread per product) ═══════════ */}
+      {/* ═══════════ 04 · OUR EXPERTISE (5 core domains) ═══════════ */}
+      <section id="expertise" className="py-32 lg:py-40 bg-brand-soft">
+        <div className="container">
+          <div className="grid lg:grid-cols-12 gap-12 mb-20">
+            <div className="lg:col-span-6">
+              <SectionLabel n="04" label="Our Expertise" />
+              <DisplayH>Five core domains. One trusted partner.</DisplayH>
+            </div>
+            <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
+              <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
+                INDESS specialises across five interconnected disciplines — each backed by deep technical knowledge, certified suppliers and a single point of accountability.
+              </p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border">
+            {expertise.map((e) => (
+              <Reveal key={e.n} className="bg-white p-8 lg:p-10 h-full block">
+                <div className="flex items-baseline gap-3 mb-6">
+                  <span className="text-[11px] tracking-editorial uppercase text-gold">{e.n}</span>
+                  <span className="h-px flex-1 bg-border" />
+                </div>
+                <h3 className="font-display-light text-2xl md:text-[1.65rem] mb-4 leading-tight">{e.title}</h3>
+                <p className="text-[13px] text-muted-foreground leading-[1.8] font-light">{e.copy}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════ 05 · PRODUCTS (one editorial spread per product) ═══════════ */}
       <section id="products" className="py-32 lg:py-40 bg-white">
         <div className="container mb-24">
           <div className="grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-6">
-              <SectionLabel n="05" label="Our Expertise" />
-              <DisplayH>Specialised across five core domains.</DisplayH>
+              <SectionLabel n="05" label="Products" />
+              <DisplayH>A complete portfolio for industrial operations.</DisplayH>
             </div>
             <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
               <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
@@ -319,7 +356,7 @@ const Index = () => {
         <div className="container">
           <div className="grid lg:grid-cols-12 gap-12 mb-20">
             <div className="lg:col-span-6">
-              <SectionLabel n="06" label="Brands" />
+              <SectionLabel n="07" label="Brands" />
               <DisplayH>The world&rsquo;s most trusted manufacturers — under one roof.</DisplayH>
             </div>
             <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
@@ -346,7 +383,7 @@ const Index = () => {
         <div className="container">
           <div className="grid lg:grid-cols-12 gap-12 mb-16">
             <div className="lg:col-span-6">
-              <SectionLabel n="07" label="Partners" />
+              <SectionLabel n="08" label="Partners" />
               <DisplayH>Engineered alliances with global specialists.</DisplayH>
             </div>
             <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
@@ -404,7 +441,7 @@ const Index = () => {
             <div className="grid lg:grid-cols-12 gap-12 mb-16">
               <div className="lg:col-span-6">
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">08</span>
+                  <span className="text-[11px] tracking-editorial uppercase text-gold">09</span>
                   <span className="h-px w-10 rule-gold" />
                   <span className="text-[11px] tracking-editorial uppercase text-white/60">Worldwide Presence</span>
                 </div>
@@ -464,54 +501,66 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════ 09 · CONTACT ═══════════ */}
+      {/* ═══════════ 10 · REQUEST A QUOTE (CTA) ═══════════ */}
       <section id="contact" className="relative py-32 lg:py-40 bg-[hsl(210_100%_8%)] text-white overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-30">
           <img src={imgLogistics} alt="" className="w-full h-full object-cover" width={1600} height={1200} loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210_100%_8%)] via-[hsl(210_100%_8%)]/70 to-transparent" />
         </div>
         <div className="container relative z-10">
-          <div className="grid lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-6">
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-7">
               <div className="flex items-center gap-4 mb-8">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">08</span>
+                <span className="text-[11px] tracking-editorial uppercase text-gold">10</span>
                 <span className="h-px w-10 rule-gold" />
-                <span className="text-[11px] tracking-editorial uppercase text-white/60">Contact</span>
+                <span className="text-[11px] tracking-editorial uppercase text-white/60">Request a Quote</span>
               </div>
               <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-10">
-                Begin a<br />conversation.
+                Ready to source<br />with confidence?
               </h2>
-              <p className="text-[15px] text-white/65 leading-[1.8] font-light max-w-lg mb-12">
-                Reach our team for a tailored quotation, technical consultation or to request our complete product catalog.
+              <p className="text-[15px] text-white/65 leading-[1.8] font-light max-w-xl mb-12">
+                Share your specifications and our engineering team will respond within one business day with a tailored quotation, technical consultation or our complete product catalog.
               </p>
+              <div className="flex flex-wrap gap-4 mb-16">
+                <a href="mailto:sales@indessuae.com?subject=Request%20a%20Quote" className="group inline-flex items-center gap-3 text-[11px] tracking-editorial uppercase font-medium text-foreground bg-gold px-8 py-4 hover:bg-white transition-colors">
+                  Request a Quote
+                  <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+                <a href="tel:+97126711663" className="inline-flex items-center gap-3 text-[11px] tracking-editorial uppercase font-medium text-white border border-white/30 px-8 py-4 hover:bg-white/10 transition-colors">
+                  Call Our Team
+                </a>
+              </div>
 
-              <div className="space-y-6 text-sm">
+              <div className="grid sm:grid-cols-3 gap-8 text-sm pt-10 border-t border-white/10">
                 <div className="flex gap-5 items-start">
-                  <MapPin size={18} className="text-gold mt-1" />
+                  <MapPin size={18} className="text-gold mt-1 shrink-0" />
                   <div>
                     <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-1">Office</p>
-                    <p className="text-white/85 font-light leading-relaxed">Ahmed Sultan Yousuf Building, Sector M-09<br />Mussafah Industrial Area, P.O. Box 9101<br />Abu Dhabi, United Arab Emirates</p>
+                    <p className="text-white/85 font-light leading-relaxed text-[13px]">Mussafah Industrial Area<br />Abu Dhabi, UAE</p>
                   </div>
                 </div>
                 <div className="flex gap-5 items-start">
-                  <Mail size={18} className="text-gold mt-1" />
+                  <Mail size={18} className="text-gold mt-1 shrink-0" />
                   <div>
                     <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-1">Email</p>
                     <a href="mailto:sales@indessuae.com" className="text-white/85 hover:text-gold font-light">sales@indessuae.com</a>
                   </div>
                 </div>
                 <div className="flex gap-5 items-start">
-                  <Phone size={18} className="text-gold mt-1" />
+                  <Phone size={18} className="text-gold mt-1 shrink-0" />
                   <div>
                     <p className="text-[10px] tracking-editorial uppercase text-white/50 mb-1">Telephone</p>
-                    <p className="text-white/85 font-light">+971 2 671 1663 · +971 58 5454 064</p>
+                    <p className="text-white/85 font-light text-[13px]">+971 2 671 1663</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-6 lg:pl-12">
-              <form onSubmit={submit} className="space-y-8">
+            <div className="lg:col-span-5 lg:pl-8">
+              <div className="border border-white/15 bg-white/[0.03] p-8 lg:p-10">
+                <p className="text-[10px] tracking-editorial uppercase text-gold mb-4">Quick Inquiry</p>
+                <h3 className="font-display-light text-3xl mb-8 leading-tight">Tell us what you need.</h3>
+                <form onSubmit={submit} className="space-y-7">
                 {[
                   { k: "name", label: "Full Name", type: "text" },
                   { k: "company", label: "Company", type: "text" },
@@ -529,20 +578,21 @@ const Index = () => {
                   </div>
                 ))}
                 <div>
-                  <label className="block text-[10px] tracking-editorial uppercase text-white/50 mb-3">Message</label>
+                  <label className="block text-[10px] tracking-editorial uppercase text-white/50 mb-3">Requirements</label>
                   <textarea
                     required
-                    rows={4}
+                    rows={3}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     className="w-full bg-transparent border-b border-white/25 py-3 text-white font-light focus:outline-none focus:border-gold transition-colors resize-none"
                   />
                 </div>
                 <button type="submit" className="group inline-flex items-center gap-3 text-[11px] tracking-editorial uppercase font-medium text-foreground bg-gold px-8 py-4 hover:bg-white transition-colors">
-                  Submit Inquiry
+                  Request a Quote
                   <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>

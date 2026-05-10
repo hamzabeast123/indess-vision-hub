@@ -15,6 +15,7 @@ import imgChemicals from "@/assets/cin-chemicals.jpg";
 import imgProcess from "@/assets/cin-process.jpg";
 import imgManufacturing from "@/assets/cin-manufacturing.jpg";
 import imgCEO from "@/assets/cin-ceo.jpg";
+import imgMarine from "@/assets/cin-marine.jpg";
 import imgOilgas from "@/assets/industry-oilgas.jpg";
 import imgPetro from "@/assets/industry-petrochemical.jpg";
 import imgPower from "@/assets/industry-power.jpg";
@@ -54,12 +55,11 @@ const services = [
 ];
 
 const products = [
-  { n: "P/01", title: "Mechanical Equipment", img: imgMechanical, copy: "Pumps, valves, compressors, flanges, fittings and precision-engineered piping systems for high-pressure service.", items: ["Centrifugal & Positive Displacement Pumps", "Ball, Gate, Globe & Check Valves", "Compressors & Heat Exchangers", "Flanges, Fittings & Gaskets"] },
-  { n: "P/02", title: "Electrical Systems", img: imgElectrical, copy: "Switchgear, transformers, motors, drives and complete LV/MV electrical distribution infrastructure.", items: ["LV/MV Switchgear & Panels", "Transformers & Reactors", "Motors, Drives & Soft Starters", "Cables, Terminations & Accessories"] },
-  { n: "P/03", title: "Instrumentation & Control", img: imgInstrumentation, copy: "Field instruments, control systems and process automation for plant-wide visibility and safety.", items: ["Pressure, Flow & Level Transmitters", "PLC, DCS & SCADA Systems", "Control Valves & Actuators", "Safety & Fire-Gas Detection"] },
-  { n: "P/04", title: "Process Equipment", img: imgProcess, copy: "Heat exchangers, separators, vessels and skid-mounted process packages built to specification.", items: ["Pressure Vessels & Separators", "Heat Exchangers & Coolers", "Filtration & Treatment Skids", "Custom-Engineered Packages"] },
-  { n: "P/05", title: "Industrial Chemicals", img: imgChemicals, copy: "Lubricants, treatment chemicals and specialty fluids supporting refineries, pipelines and offshore operations.", items: ["Industrial Lubricants & Greases", "Drilling & Completion Fluids", "Corrosion & Scale Inhibitors", "Cleaning & Treatment Chemicals"] },
-  { n: "P/06", title: "Logistics & Spares", img: imgLogistics, copy: "Inventory programs, expedited spares and integrated freight to keep operations continuously online.", items: ["OEM Genuine Spare Parts", "Vendor-Managed Inventory", "Expedited Air & Sea Freight", "Project Cargo Coordination"] },
+  { n: "P/01", title: "Mechanical Solutions", img: imgMechanical, copy: "A wide array of mechanical components and systems designed to ensure optimal performance and reliability across high-pressure service environments.", items: ["Centrifugal & Positive Displacement Pumps", "Ball, Gate, Globe & Check Valves", "Compressors & Heat Exchangers", "Flanges, Fittings & Gaskets"] },
+  { n: "P/02", title: "Instrumentation", img: imgInstrumentation, copy: "Precision instruments that provide accurate measurements and control for critical processes — engineered for plant-wide visibility and safety.", items: ["Pressure, Flow & Level Transmitters", "PLC, DCS & SCADA Systems", "Control Valves & Actuators", "Safety & Fire-Gas Detection"] },
+  { n: "P/03", title: "Electrical Systems & Equipment", img: imgElectrical, copy: "Advanced electrical systems and components that power and sustain operations across industries — from LV switchgear to MV distribution.", items: ["LV/MV Switchgear & Panels", "Transformers & Reactors", "Motors, Drives & Soft Starters", "Cables, Terminations & Accessories"] },
+  { n: "P/04", title: "Industrial Chemicals", img: imgChemicals, copy: "Industrial-grade chemicals that meet the highest standards of safety and efficiency, supporting refineries, pipelines and offshore operations.", items: ["Industrial Lubricants & Greases", "Drilling & Completion Fluids", "Corrosion & Scale Inhibitors", "Cleaning & Treatment Chemicals"] },
+  { n: "P/05", title: "Marine Products", img: imgMarine, copy: "Trusted supplier of high-quality products for VLCs (Very Large Carriers) and VLCCs (Very Large Crude Carriers) — engineered for the harshest marine environments.", items: ["Marine-Grade Pumps & Valves", "Deck & Engine Room Equipment", "Onboard Safety & Fire Systems", "Spares for VLCs & VLCCs"] },
 ];
 
 const brands = ["GE", "Mitsubishi", "Schneider", "Honeywell", "Omron", "ABB", "Fanuc", "Eaton", "Bosch", "Lenze", "Banner", "Siemens"];
@@ -182,84 +182,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════ 04 · INDUSTRIES ═══════════ */}
-      <section id="industries" className="py-32 lg:py-40 bg-white">
-        <div className="container">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-5">
-              <SectionLabel n="03" label="Industries" />
-              <DisplayH>Built for mission-critical sectors.</DisplayH>
-            </div>
-            <div className="lg:col-span-6 lg:col-start-7 lg:pt-8">
-              <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
-                Our portfolio supports six core industries where reliability, safety and uptime are non-negotiable. Each engagement is engineered to the standards of the sector it serves.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-            {industries.map((i) => (
-              <Reveal key={i.title} delay={Number(i.n) * 60} className="bg-white group block">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={i.img} alt={i.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={1280} height={960} />
-                </div>
-                <div className="p-8">
-                  <div className="flex items-baseline justify-between mb-4">
-                    <span className="text-[11px] tracking-editorial uppercase text-gold">{i.n}</span>
-                    <span className="h-px flex-1 mx-4 bg-border" />
-                    <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
-                  </div>
-                  <h3 className="font-display-light text-3xl mb-3">{i.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed font-light">{i.copy}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════ EXPERTISE ═══════════ */}
-      <section id="expertise" className="py-32 lg:py-40 bg-brand-soft">
-        <div className="container">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-6">
-              <SectionLabel n="03b" label="Our Expertise" />
-              <DisplayH>Specialised across five core domains.</DisplayH>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
-              <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
-                At INDESS Solutions Trading, we provide a comprehensive range of products tailored to the unique needs of our clients — engineered for performance, reliability and the highest standards of safety.
-              </p>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-            {[
-              { n: "E/01", t: "Mechanical Solutions", c: "A wide array of mechanical components and systems designed to ensure optimal performance and reliability." },
-              { n: "E/02", t: "Instrumentation", c: "Precision instruments that provide accurate measurements and control for critical processes." },
-              { n: "E/03", t: "Electrical Systems & Equipment", c: "Advanced electrical systems and components that power and sustain operations across industries." },
-              { n: "E/04", t: "Industrial Chemicals", c: "Industrial-grade chemicals that meet the highest standards of safety and efficiency." },
-              { n: "E/05", t: "Marine Products", c: "Trusted supplier of high-quality products for VLCs (Very Large Carriers) and VLCCs (Very Large Crude Carriers)." },
-              { n: "E/06", t: "Browse the Catalog", c: "Explore our complete product reference — categories, sub-categories and specifications.", link: "/catalog" },
-            ].map((e) => (
-              <div key={e.n} className={`p-10 lg:p-12 ${e.link ? "bg-[hsl(210_100%_10%)] text-white" : "bg-white"}`}>
-                <div className="flex items-baseline gap-4 mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">{e.n}</span>
-                  <span className="h-px w-8 rule-gold" />
-                </div>
-                <h3 className={`font-display-light text-2xl md:text-3xl mb-4 leading-tight ${e.link ? "text-white" : ""}`}>{e.t}</h3>
-                <p className={`text-[14px] leading-[1.8] font-light ${e.link ? "text-white/65" : "text-muted-foreground"}`}>{e.c}</p>
-                {e.link && (
-                  <Link to={e.link} className="inline-flex items-center gap-2 mt-6 text-[11px] tracking-editorial uppercase text-gold hover:text-white transition-colors">
-                    View Catalog <ArrowUpRight size={14} />
-                  </Link>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══════════ 05 · SERVICES (cinematic split) ═══════════ */}
       <section id="services" className="relative py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white overflow-hidden">
         <div className="absolute inset-0 opacity-25">
@@ -304,12 +226,12 @@ const Index = () => {
         <div className="container mb-24">
           <div className="grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-6">
-              <SectionLabel n="05" label="Products" />
-              <DisplayH>An engineered catalog, sourced with discipline.</DisplayH>
+              <SectionLabel n="05" label="Our Expertise" />
+              <DisplayH>Specialised across five core domains.</DisplayH>
             </div>
             <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
               <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
-                Six product domains, hundreds of specifications, one standard of quality. Each category is supported by tier-one OEMs and certified to international codes.
+                At INDESS Solutions Trading, we provide a comprehensive range of products tailored to the unique needs of our clients — engineered for performance, reliability and the highest standards of safety across five specialised domains.
               </p>
               <Link to="/catalog" className="inline-flex items-center gap-3 mt-8 text-[11px] tracking-editorial uppercase font-medium text-white bg-brand px-6 py-3 hover:bg-brand-deep transition-colors">
                 View Product Catalog <ArrowUpRight size={14} />
@@ -335,7 +257,7 @@ const Index = () => {
                   </div>
                   <div className="lg:col-span-5">
                     <div className="flex items-center gap-4 mb-6">
-                      <span className="text-[11px] tracking-editorial uppercase text-gold">Product</span>
+                      <span className="text-[11px] tracking-editorial uppercase text-gold">Domain</span>
                       <span className="h-px w-10 rule-gold" />
                     </div>
                     <h3 className="font-display-light text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">{p.title}</h3>
@@ -353,6 +275,42 @@ const Index = () => {
               </Reveal>
             );
           })}
+        </div>
+      </section>
+
+      {/* ═══════════ INDUSTRIES (moved below products) ═══════════ */}
+      <section id="industries" className="py-32 lg:py-40 bg-white">
+        <div className="container">
+          <div className="grid lg:grid-cols-12 gap-12 mb-20">
+            <div className="lg:col-span-5">
+              <SectionLabel n="06" label="Industries" />
+              <DisplayH>Built for mission-critical sectors.</DisplayH>
+            </div>
+            <div className="lg:col-span-6 lg:col-start-7 lg:pt-8">
+              <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
+                Our portfolio supports six core industries where reliability, safety and uptime are non-negotiable. Each engagement is engineered to the standards of the sector it serves.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            {industries.map((i) => (
+              <Reveal key={i.title} delay={Number(i.n) * 60} className="bg-white group block">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img src={i.img} alt={i.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width={1280} height={960} />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-baseline justify-between mb-4">
+                    <span className="text-[11px] tracking-editorial uppercase text-gold">{i.n}</span>
+                    <span className="h-px flex-1 mx-4 bg-border" />
+                    <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
+                  </div>
+                  <h3 className="font-display-light text-3xl mb-3">{i.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed font-light">{i.copy}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

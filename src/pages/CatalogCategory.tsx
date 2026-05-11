@@ -90,6 +90,22 @@ import mSuctionHose from "@/assets/catalog/mechanical/suction-hose.jpg";
 import mCompositeHose from "@/assets/catalog/mechanical/composite-hose.jpg";
 import mCorrugatedHose from "@/assets/catalog/mechanical/corrugated-hose.jpg";
 import mAerospaceHose from "@/assets/catalog/mechanical/aerospace-hose.jpg";
+import iPtFlow from "@/assets/catalog/instrumentation/pressure-temp-flow.jpg";
+import iTransmitter from "@/assets/catalog/instrumentation/transmitters.jpg";
+import iFlowMeter from "@/assets/catalog/instrumentation/flow-meter.jpg";
+import iCo2 from "@/assets/catalog/instrumentation/co2-h2o-analyzer.jpg";
+import iRtd from "@/assets/catalog/instrumentation/rtd-sensor.jpg";
+import iThermocouple from "@/assets/catalog/instrumentation/thermocouple.jpg";
+import iProtractor from "@/assets/catalog/instrumentation/protractor.jpg";
+import iHart from "@/assets/catalog/instrumentation/hart-communicator.jpg";
+import iTelescopic from "@/assets/catalog/instrumentation/telescopic-gauge.jpg";
+import iPressureSensor from "@/assets/catalog/instrumentation/pressure-sensor.jpg";
+import iCalliper from "@/assets/catalog/instrumentation/calliper.jpg";
+import iMicrometer from "@/assets/catalog/instrumentation/micrometer.jpg";
+import iInclinometer from "@/assets/catalog/instrumentation/bubble-inclinometer.jpg";
+import iElecMeasuring from "@/assets/catalog/instrumentation/electrical-measuring.jpg";
+import iIndTemp from "@/assets/catalog/instrumentation/industrial-temperature.jpg";
+import iPosition from "@/assets/catalog/instrumentation/position-sensor.jpg";
 
 type Item = { name: string; description: string; image?: string };
 type CategoryPage = {

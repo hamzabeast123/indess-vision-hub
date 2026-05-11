@@ -473,19 +473,34 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Clients sub-section */}
+          {/* Clients sub-section — dual marquee */}
           <div className="mt-24 pt-16 border-t border-border">
-            <div className="flex flex-wrap items-end justify-between gap-6 mb-8">
+            <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
               <p className="text-[10px] tracking-editorial uppercase text-gold">Selected Clients</p>
               <Link to="/clients" className="inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase text-foreground/70 hover:text-brand transition-colors">
                 View All Clients <ArrowUpRight size={13} />
               </Link>
             </div>
-            <div className="flex flex-wrap gap-x-10 gap-y-5">
-              {clients.map((c) => (
-                <span key={c} className="font-display-light text-2xl md:text-3xl text-foreground/55 hover:text-brand transition-colors">{c}</span>
-              ))}
-            </div>
+
+            {[clients.slice(0, 6), clients.slice(6)].map((row, idx) => (
+              <div key={idx} className={`marquee ${idx === 0 ? "" : "mt-6"}`}>
+                <div className={`marquee-track ${idx === 1 ? "reverse" : ""}`}>
+                  {[...row, ...row, ...row, ...row].map((c, i) => (
+                    <div
+                      key={`${c}-${i}`}
+                      className="shrink-0 flex items-center gap-4 px-8 py-5 border border-border bg-white hover:border-gold transition-colors min-w-[240px]"
+                    >
+                      <div className="w-10 h-10 border border-gold/60 flex items-center justify-center bg-brand">
+                        <span className="font-display-light text-white text-base tracking-wider">
+                          {c.split(" ").map((w) => w[0]).slice(0, 2).join("")}
+                        </span>
+                      </div>
+                      <span className="font-display-light text-xl text-foreground/70 whitespace-nowrap">{c}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

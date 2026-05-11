@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MapPin, Cog, Gauge, Zap, FlaskConical, Ship } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -55,11 +55,11 @@ const services = [
 ];
 
 const expertise = [
-  { n: "E/01", title: "Mechanical", copy: "Pumps, valves, compressors, heat exchangers and rotating equipment engineered for high-pressure service." },
-  { n: "E/02", title: "Instrumentation", copy: "Field instruments, control systems and safety detection that deliver plant-wide visibility." },
-  { n: "E/03", title: "Electrical", copy: "LV/MV switchgear, transformers, motors and drives — designed for continuous industrial duty." },
-  { n: "E/04", title: "Industrial Chemicals", copy: "Lubricants, drilling fluids and treatment chemicals supporting refineries and offshore operations." },
-  { n: "E/05", title: "Marine", copy: "Specialised supply for VLCs and VLCCs — pumps, valves and onboard systems for the harshest environments." },
+  { n: "E/01", title: "Mechanical", icon: Cog, copy: "Pumps, valves, compressors, heat exchangers and rotating equipment engineered for high-pressure service." },
+  { n: "E/02", title: "Instrumentation", icon: Gauge, copy: "Field instruments, control systems and safety detection that deliver plant-wide visibility." },
+  { n: "E/03", title: "Electrical", icon: Zap, copy: "LV/MV switchgear, transformers, motors and drives — designed for continuous industrial duty." },
+  { n: "E/04", title: "Industrial Chemicals", icon: FlaskConical, copy: "Lubricants, drilling fluids and treatment chemicals supporting refineries and offshore operations." },
+  { n: "E/05", title: "Marine", icon: Ship, copy: "Specialised supply for VLCs and VLCCs — pumps, valves and onboard systems for the harshest environments." },
 ];
 
 const products = [
@@ -199,30 +199,46 @@ const Index = () => {
       {/* Services section hidden per request */}
 
       {/* ═══════════ 04 · OUR EXPERTISE (5 core domains) ═══════════ */}
-      <section id="expertise" className="py-32 lg:py-40 bg-brand-soft">
-        <div className="container">
+      <section id="expertise" className="py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white relative overflow-hidden">
+        <img src={imgManufacturing} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210_100%_10%)] via-[hsl(210_100%_10%)]/90 to-[hsl(210_100%_10%)]" />
+        <div className="container relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-6">
-              <SectionLabel n="04" label="Our Expertise" />
-              <DisplayH>Five core domains. One trusted partner.</DisplayH>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-8 lg:pt-8">
-              <p className="text-[15px] text-muted-foreground leading-[1.8] font-light">
-                INDESS specialises across five interconnected disciplines — each backed by deep technical knowledge, certified suppliers and a single point of accountability.
+            <Reveal className="lg:col-span-6">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-[11px] tracking-editorial uppercase text-gold">04</span>
+                <span className="h-px w-10 rule-gold" />
+                <span className="text-[11px] tracking-editorial uppercase text-white/60">Our Expertise</span>
+              </div>
+              <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
+                Specialised across five core domains.
+              </h2>
+            </Reveal>
+            <Reveal delay={120} className="lg:col-span-5 lg:col-start-8 lg:pt-8">
+              <p className="text-[15px] text-white/70 leading-[1.8] font-light">
+                INDESS provides a comprehensive range of products tailored to the unique needs of our clients — engineered for performance, reliability and the highest standards of safety.
               </p>
-            </div>
+            </Reveal>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-px bg-border border border-border">
-            {expertise.map((e) => (
-              <Reveal key={e.n} className="bg-white p-8 lg:p-10 h-full block">
-                <div className="flex items-baseline gap-3 mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">{e.n}</span>
-                  <span className="h-px flex-1 bg-border" />
-                </div>
-                <h3 className="font-display-light text-2xl md:text-[1.65rem] mb-4 leading-tight">{e.title}</h3>
-                <p className="text-[13px] text-muted-foreground leading-[1.8] font-light">{e.copy}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10">
+            {expertise.map((e, i) => (
+              <Reveal key={e.title} delay={i * 70} className="bg-[hsl(210_100%_10%)] p-10">
+                <e.icon className="text-gold mb-8" size={28} strokeWidth={1.2} />
+                <div className="h-px w-10 rule-gold mb-6" />
+                <h3 className="font-display-light text-2xl mb-3 text-white">{e.title}</h3>
+                <p className="text-sm text-white/70 font-light leading-[1.7]">{e.copy}</p>
               </Reveal>
             ))}
+            <Reveal delay={expertise.length * 70} className="bg-[hsl(207_100%_25%)] p-10 flex flex-col justify-between">
+              <div>
+                <span className="text-[10px] tracking-editorial uppercase text-gold">E/06</span>
+                <h3 className="font-display-light text-3xl mt-6 mb-3 text-white">Browse the Catalog</h3>
+                <p className="text-sm text-white/75 font-light leading-[1.7]">Explore our complete product reference — categories, sub-categories and specifications.</p>
+              </div>
+              <Link to="/catalog" className="inline-flex items-center gap-2 mt-8 text-[11px] tracking-editorial uppercase text-white border-b border-gold pb-2 w-fit">
+                Open Catalog <ArrowUpRight size={14} />
+              </Link>
+            </Reveal>
           </div>
         </div>
       </section>

@@ -36,6 +36,30 @@ import vSlide from "@/assets/catalog/valves/slide.jpg";
 import vBypass from "@/assets/catalog/valves/bypass.jpg";
 import vPinch from "@/assets/catalog/valves/pinch.jpg";
 import vDiaphragm from "@/assets/catalog/valves/diaphragm.jpg";
+import eContactors from "@/assets/catalog/electrical/contactors.jpg";
+import eEnclosures from "@/assets/catalog/electrical/enclosures.jpg";
+import eBreaker from "@/assets/catalog/electrical/circuit-breaker.jpg";
+import eStrapper from "@/assets/catalog/electrical/wire-strapper.jpg";
+import eSplicing from "@/assets/catalog/electrical/splicing-connector.jpg";
+import eRelay from "@/assets/catalog/electrical/relay.jpg";
+import eCableTester from "@/assets/catalog/electrical/cable-tester.jpg";
+import eDigitalTape from "@/assets/catalog/electrical/digital-measuring-tape.jpg";
+import cMea from "@/assets/catalog/chemicals/mono-ethanol-amine.jpg";
+import cNaoh from "@/assets/catalog/chemicals/sodium-hydroxide.jpg";
+import cGlyFischer from "@/assets/catalog/chemicals/glycerin-fischer.jpg";
+import cGlyClear from "@/assets/catalog/chemicals/glycerin-clear.jpg";
+import cAnthracite from "@/assets/catalog/chemicals/anthracite.jpg";
+import cSilicaSand from "@/assets/catalog/chemicals/silica-sand.jpg";
+import cTeg from "@/assets/catalog/chemicals/teg.jpg";
+import cWater from "@/assets/catalog/chemicals/distilled-water.jpg";
+import cEdta from "@/assets/catalog/chemicals/edta.jpg";
+import cAlSulfate from "@/assets/catalog/chemicals/aluminium-sulfate.jpg";
+import cAntifreeze from "@/assets/catalog/chemicals/antifreeze.jpg";
+import cChlorine from "@/assets/catalog/chemicals/liquid-chlorine.jpg";
+import cXylene from "@/assets/catalog/chemicals/xylene.jpg";
+import cSilicaGel from "@/assets/catalog/chemicals/silica-gel.jpg";
+import cEngineOil from "@/assets/catalog/chemicals/engine-oil.jpg";
+import cGrease from "@/assets/catalog/chemicals/ep-grease.jpg";
 
 type Item = { name: string; description: string; image?: string };
 type CategoryPage = {
@@ -88,17 +112,17 @@ const PAGES: Record<string, CategoryPage> = {
       { name: "Transformers", image: imgTransformers, description: "The maximum voltage which the primary winding can be subjected to also has a maximum limit. If the applied voltage exceeds the maximum rated value, this causes magnetic saturation of the core, leading to distorted output with higher iron losses." },
       { name: "Cables", image: imgCables, description: "Ship cable, also known as marine cable, offers excellent quality and meets the strictest maritime regulations." },
       { name: "Switch Gear Panels", image: imgSwitchgear, description: "The switch panel is built to withstand harsh marine environments. It is IP65 waterproof, featuring a special rubber steel-cap and anti-seepage rubber ring." },
-      { name: "Contactors", description: "Contactors are commonly used in high-power applications such as large motors, heavy machinery, and HVAC systems. Relays are often employed in control systems, automation, and low-power circuits where isolation between control and load circuits is essential." },
-      { name: "Enclosures", description: "Boxes and enclosures are used to mount and encase electrical switch accessories. They provide structural and operational support for electrical wiring." },
-      { name: "Circuit Breaker", description: "A circuit breaker is an automatically operated electrical switch designed to protect an electrical circuit from damage caused by overload." },
-      { name: "Wire Strapper", description: "Ideal for copper and aluminium cables from 22–30 AWG. Built-in wire cutter." },
-      { name: "Splicing Connector", description: "Compact splicing connectors and electrical wire connectors for easy and reliable connection. Lever-actuated connectors suitable for all wires up to 4 mm² — pack of 100." },
-      { name: "Advanced Cable Tester", description: "Advanced cable tester with PoE multifunction wire tracker and tone probe — toner tool kit with bag for LAN CAT5/CAT6, underground telephone line finder." },
-      { name: "Relay", description: "The DCR100 contains 6 DC relays, each capable of switching up to 10 amps. Connects directly to NMEA 2000® and loads can be switched onboard via dedicated displays or N2KView® software." },
-      { name: "Cable Tester", description: "Each type of wire and cable is tailored to its required application. A range of testers is available for verifying continuity, faults and configuration." },
+      { name: "Contactors", image: eContactors, description: "Contactors are commonly used in high-power applications such as large motors, heavy machinery, and HVAC systems. Relays are often employed in control systems, automation, and low-power circuits where isolation between control and load circuits is essential." },
+      { name: "Enclosures", image: eEnclosures, description: "Boxes and enclosures are used to mount and encase electrical switch accessories. They provide structural and operational support for electrical wiring." },
+      { name: "Circuit Breaker", image: eBreaker, description: "A circuit breaker is an automatically operated electrical switch designed to protect an electrical circuit from damage caused by overload." },
+      { name: "Wire Strapper", image: eStrapper, description: "Ideal for copper and aluminium cables from 22–30 AWG. Built-in wire cutter." },
+      { name: "Splicing Connector", image: eSplicing, description: "Compact splicing connectors and electrical wire connectors for easy and reliable connection. Lever-actuated connectors suitable for all wires up to 4 mm² — pack of 100." },
+      { name: "Advanced Cable Tester", image: eCableTester, description: "Advanced cable tester with PoE multifunction wire tracker and tone probe — toner tool kit with bag for LAN CAT5/CAT6, underground telephone line finder." },
+      { name: "Relay", image: eRelay, description: "The DCR100 contains 6 DC relays, each capable of switching up to 10 amps. Connects directly to NMEA 2000® and loads can be switched onboard via dedicated displays or N2KView® software." },
+      { name: "Cable Tester", image: eCableTester, description: "Each type of wire and cable is tailored to its required application. A range of testers is available for verifying continuity, faults and configuration." },
       { name: "Fish Tape", image: imgCables, description: "Fish tape is one of the more popular pieces of electrical tooling, used on just about every job site for pulling wire through conduit and walls." },
-      { name: "Tester", description: "Leakage tester measures leakage across capacitor plates. LCR meter measures the inductance, capacitance and resistance of a component." },
-      { name: "Digital Measuring Tape", description: "Experience precision and convenience with a digital measuring tape — clear digital display, durable build, accurate measurements for field use." },
+      { name: "Tester", image: eCableTester, description: "Leakage tester measures leakage across capacitor plates. LCR meter measures the inductance, capacitance and resistance of a component." },
+      { name: "Digital Measuring Tape", image: eDigitalTape, description: "Experience precision and convenience with a digital measuring tape — clear digital display, durable build, accurate measurements for field use." },
       { name: "Motors & Drives", image: imgMotors, description: "AC induction motors, servo motors, variable frequency drives and soft starters for industrial drive trains and process control." },
       { name: "Lighting & UPS", image: imgLightingUps, description: "Industrial and hazardous-area lighting, UPS systems and battery banks for continuous operation in critical environments." },
     ],
@@ -114,25 +138,25 @@ const PAGES: Record<string, CategoryPage> = {
     hero: imgLubricants,
     items: [
       { name: "Methanol", image: imgDrilling, description: "Methanol, known for its lower carbon intensity and potential for renewable production, presents a promising pathway to propel the maritime industry towards a more sustainable future." },
-      { name: "Mono Ethanol Amine", description: "A premium range of fluorine-based products such as amines and amine derivatives among other major industrial chemicals." },
-      { name: "Sodium Hydroxide", description: "Living at the fuel–water interface, damaging microbes depend on water for growth and the organic molecules of fuel for nutrition; sodium hydroxide is widely used in treatment to control them." },
+      { name: "Mono Ethanol Amine", image: cMea, description: "A premium range of fluorine-based products such as amines and amine derivatives among other major industrial chemicals." },
+      { name: "Sodium Hydroxide", image: cNaoh, description: "Living at the fuel–water interface, damaging microbes depend on water for growth and the organic molecules of fuel for nutrition; sodium hydroxide is widely used in treatment to control them." },
       { name: "Sodium Hypochlorite", image: imgTreatment, description: "Industrial-strength sodium hypochlorite is a diverse product. When dissolved in water it is commonly known as bleach or industrial liquid bleach. It is practically and chemically distinct from chlorine." },
-      { name: "Glycerin (Fischer)", description: "Glycerol — also known as glycerin, glycerine, 1,2,3-propanetriol, glyceritol — used across pharmaceutical, cosmetic and industrial formulations." },
-      { name: "Glycerin (Glycerol Clear)", description: "Formulated as per industry guidelines using a highly upgraded modern infrastructure facility for consistent purity and quality." },
-      { name: "Anthracite", description: "A hard, compact variety of mineral coal which is highly lustrous. It has the highest carbon content, the fewest impurities, and the highest calorific content of all coal types." },
-      { name: "Silica Sand", description: "Top-quality silica sand used extensively in diverse industrial segments including filtration, foundry and glass manufacturing." },
-      { name: "TEG (Tri Ethylene Glycol)", description: "The main uses for triethylene glycol are based on its hygroscopic quality — it absorbs moisture from the air through absorption or adsorption, ideal for gas dehydration." },
-      { name: "Pure Distilled Water", description: "High-purity distilled water for laboratory, battery, cooling system and pharmaceutical applications, sourced from trusted vendors with precise composition." },
+      { name: "Glycerin (Fischer)", image: cGlyFischer, description: "Glycerol — also known as glycerin, glycerine, 1,2,3-propanetriol, glyceritol — used across pharmaceutical, cosmetic and industrial formulations." },
+      { name: "Glycerin (Glycerol Clear)", image: cGlyClear, description: "Formulated as per industry guidelines using a highly upgraded modern infrastructure facility for consistent purity and quality." },
+      { name: "Anthracite", image: cAnthracite, description: "A hard, compact variety of mineral coal which is highly lustrous. It has the highest carbon content, the fewest impurities, and the highest calorific content of all coal types." },
+      { name: "Silica Sand", image: cSilicaSand, description: "Top-quality silica sand used extensively in diverse industrial segments including filtration, foundry and glass manufacturing." },
+      { name: "TEG (Tri Ethylene Glycol)", image: cTeg, description: "The main uses for triethylene glycol are based on its hygroscopic quality — it absorbs moisture from the air through absorption or adsorption, ideal for gas dehydration." },
+      { name: "Pure Distilled Water", image: cWater, description: "High-purity distilled water for laboratory, battery, cooling system and pharmaceutical applications, sourced from trusted vendors with precise composition." },
       { name: "Caustic Flakes", image: imgCleaning, description: "Sodium Hydroxide (NaOH) — white deliquescent solid in beads or pellets. Corrosive to tissue in the presence of moisture; widely used as a detergent and process chemical." },
-      { name: "EDTA-4Na (Powder)", description: "Technical-grade EDTA-4Na (Tetrasodium EDTA) — a high-quality chelating agent meticulously formulated to meet industrial standards with exceptional performance." },
-      { name: "Antifoam / Aluminium Sulfate Al₂(SO₄)₃", description: "Used for purification of drinking water and wastewater treatment as a flocculant and coagulant." },
-      { name: "Antifreeze / Engine Coolant", description: "A liquid substance used in vehicle cooling systems to prevent the engine from freezing in cold temperatures and overheating in hot conditions." },
-      { name: "Liquid Chlorine 12% Concentration", description: "Leading supplier of liquid chlorine solution at competitive prices and various pack sizes — a strong disinfectant used for sanitisation." },
-      { name: "Xylene", description: "Xylene can be used in place of toluene to thin specified oil-based paint, lacquer, varnish, epoxy, adhesives and synthetic enamels when a slower rate of evaporation is desired." },
-      { name: "Silica Gel", description: "A very porous crystal with many cavities and a large surface area. Capillary effects and adsorption bind water, alcohols and hydrocarbons until saturation." },
+      { name: "EDTA-4Na (Powder)", image: cEdta, description: "Technical-grade EDTA-4Na (Tetrasodium EDTA) — a high-quality chelating agent meticulously formulated to meet industrial standards with exceptional performance." },
+      { name: "Antifoam / Aluminium Sulfate Al₂(SO₄)₃", image: cAlSulfate, description: "Used for purification of drinking water and wastewater treatment as a flocculant and coagulant." },
+      { name: "Antifreeze / Engine Coolant", image: cAntifreeze, description: "A liquid substance used in vehicle cooling systems to prevent the engine from freezing in cold temperatures and overheating in hot conditions." },
+      { name: "Liquid Chlorine 12% Concentration", image: cChlorine, description: "Leading supplier of liquid chlorine solution at competitive prices and various pack sizes — a strong disinfectant used for sanitisation." },
+      { name: "Xylene", image: cXylene, description: "Xylene can be used in place of toluene to thin specified oil-based paint, lacquer, varnish, epoxy, adhesives and synthetic enamels when a slower rate of evaporation is desired." },
+      { name: "Silica Gel", image: cSilicaGel, description: "A very porous crystal with many cavities and a large surface area. Capillary effects and adsorption bind water, alcohols and hydrocarbons until saturation." },
       { name: "Hydraulic Oil", image: imgLubricants, description: "Manufactured from high-quality material procured from well-known vendors. Available in standard and custom specifications as per customer requirements." },
-      { name: "Engine Oil", description: "Highly effective mid-alkaline mineral motor oil for marine trunk and crosshead, main and auxiliary diesel engines operating on distillate fuel with sulfur content less than 1.5%." },
-      { name: "EP1, EP2, EP3 Grease", description: "Multi-purpose lithium grease suitable for use in high-pressure greasing equipment across automotive, marine and industrial machinery." },
+      { name: "Engine Oil", image: cEngineOil, description: "Highly effective mid-alkaline mineral motor oil for marine trunk and crosshead, main and auxiliary diesel engines operating on distillate fuel with sulfur content less than 1.5%." },
+      { name: "EP1, EP2, EP3 Grease", image: cGrease, description: "Multi-purpose lithium grease suitable for use in high-pressure greasing equipment across automotive, marine and industrial machinery." },
     ],
   },
 

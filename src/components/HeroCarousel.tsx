@@ -84,7 +84,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const AUTO_MS = 6500;
+const AUTO_MS = 4200;
 
 const HeroCarousel = () => {
   const [active, setActive] = useState(0);
@@ -149,14 +149,6 @@ const HeroCarousel = () => {
         );
       })}
 
-      {/* Top editorial bar */}
-      <div className="absolute top-24 inset-x-0 z-20">
-        <div className="container flex items-center justify-between text-white/70 text-[10px] tracking-editorial uppercase">
-          <span>Company Profile · MMXXV</span>
-          <span className="hidden md:inline">Abu Dhabi · United Arab Emirates</span>
-        </div>
-      </div>
-
       {/* Slide content */}
       <div className="container relative z-10 pb-32 md:pb-40">
         <div className="grid lg:grid-cols-12 gap-8 items-end">
@@ -169,14 +161,6 @@ const HeroCarousel = () => {
                   display: i === active ? "block" : "none",
                 }}
               >
-                <div
-                  className="flex items-center gap-4 mb-8 animate-fade-up"
-                  style={{ animationDelay: "120ms" }}
-                >
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">{s.volume}</span>
-                  <span className="h-px w-12 rule-gold" />
-                  <span className="text-[11px] tracking-editorial uppercase text-white/65">{s.eyebrow}</span>
-                </div>
                 <h1
                   className="font-display-light text-[clamp(2.5rem,6.6vw,6rem)] leading-[0.96] text-white tracking-tight mb-8 animate-fade-up"
                   style={{ animationDelay: "260ms" }}

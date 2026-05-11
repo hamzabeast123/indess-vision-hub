@@ -90,6 +90,22 @@ import mSuctionHose from "@/assets/catalog/mechanical/suction-hose.jpg";
 import mCompositeHose from "@/assets/catalog/mechanical/composite-hose.jpg";
 import mCorrugatedHose from "@/assets/catalog/mechanical/corrugated-hose.jpg";
 import mAerospaceHose from "@/assets/catalog/mechanical/aerospace-hose.jpg";
+import iPtFlow from "@/assets/catalog/instrumentation/pressure-temp-flow.jpg";
+import iTransmitter from "@/assets/catalog/instrumentation/transmitters.jpg";
+import iFlowMeter from "@/assets/catalog/instrumentation/flow-meter.jpg";
+import iCo2 from "@/assets/catalog/instrumentation/co2-h2o-analyzer.jpg";
+import iRtd from "@/assets/catalog/instrumentation/rtd-sensor.jpg";
+import iThermocouple from "@/assets/catalog/instrumentation/thermocouple.jpg";
+import iProtractor from "@/assets/catalog/instrumentation/protractor.jpg";
+import iHart from "@/assets/catalog/instrumentation/hart-communicator.jpg";
+import iTelescopic from "@/assets/catalog/instrumentation/telescopic-gauge.jpg";
+import iPressureSensor from "@/assets/catalog/instrumentation/pressure-sensor.jpg";
+import iCalliper from "@/assets/catalog/instrumentation/calliper.jpg";
+import iMicrometer from "@/assets/catalog/instrumentation/micrometer.jpg";
+import iInclinometer from "@/assets/catalog/instrumentation/bubble-inclinometer.jpg";
+import iElecMeasuring from "@/assets/catalog/instrumentation/electrical-measuring.jpg";
+import iIndTemp from "@/assets/catalog/instrumentation/industrial-temperature.jpg";
+import iPosition from "@/assets/catalog/instrumentation/position-sensor.jpg";
 
 type Item = { name: string; description: string; image?: string };
 type CategoryPage = {
@@ -226,24 +242,24 @@ const PAGES: Record<string, CategoryPage> = {
     hero: imgTransmitters,
     items: [
       { name: "Temperature & Pressure Gauges", image: imgTransmitters, description: "A well-known supplier of diaphragm-type pressure gauges to a large client base across process and utility industries." },
-      { name: "Pressure & Temperature Flow", description: "Complete sets of onboard calibration and testing equipment combined with services, ensuring your equipment is available and ready when you need it." },
-      { name: "Transmitters", description: "FKC high-accuracy differential pressure sensor models accurately measure differential pressure and transmit a proportional 4–20 mA electrical output signal." },
-      { name: "Flow Meters", description: "Each flow meter has a screen visualising measurements. Some models also send data via digital interface or pulse output to onboard telematics or recording units." },
-      { name: "CO₂ / H₂O Gas Analyzers", description: "The flue gas analyser testo 350 MARITIME measures gaseous exhaust concentrations of NO, NO₂, SO₂, CO, CO₂-(IR), O₂ on marine diesel engines." },
+      { name: "Pressure & Temperature Flow", image: iPtFlow, description: "Complete sets of onboard calibration and testing equipment combined with services, ensuring your equipment is available and ready when you need it." },
+      { name: "Transmitters", image: iTransmitter, description: "FKC high-accuracy differential pressure sensor models accurately measure differential pressure and transmit a proportional 4–20 mA electrical output signal." },
+      { name: "Flow Meters", image: iFlowMeter, description: "Each flow meter has a screen visualising measurements. Some models also send data via digital interface or pulse output to onboard telematics or recording units." },
+      { name: "CO₂ / H₂O Gas Analyzers", image: iCo2, description: "The flue gas analyser testo 350 MARITIME measures gaseous exhaust concentrations of NO, NO₂, SO₂, CO, CO₂-(IR), O₂ on marine diesel engines." },
       { name: "Gas Analyzers", image: imgSafetyDetection, description: "Infrared sensing — a flexible measurement technology based on the unique light-absorbing properties of specific gases." },
-      { name: "RTD Sensors", description: "Quality is directly linked to safety, operating costs and efficiency. Marine-approved sensors are tested meticulously to provide predictability and security." },
-      { name: "Thermocouples", description: "A device for measuring temperature. Two dissimilar metallic wires joined to form a junction; heating or cooling generates a small voltage corresponding to temperature." },
-      { name: "Protractor", description: "A basic device used for measuring angles with a least count of 1° or ½°. Bevel protractors are angular measuring instruments used in machining and inspection." },
-      { name: "HART Communicator", description: "A secondary master device that enables the technician in the field to monitor process parameter values and configure smart instruments." },
-      { name: "Telescopic Gauge", description: "A measuring instrument with a spring-loaded plunger used together with a micrometer to measure bore diameters and inside hole dimensions." },
-      { name: "Pressure Sensor", description: "Detects pressure and transforms it into an electric signal whose strength is dependent on the pressure being applied." },
-      { name: "Calliper", description: "An instrument used to measure the dimensions of an object or hole — length, width, thickness, diameter or depth." },
-      { name: "Micrometer", description: "Also known as outside or external micrometer — used to check the outside diameter of cylindrical components with high precision." },
-      { name: "Bubble Inclinometer", description: "An inclinometer simply determines how steep a particular incline is — used in alignment, structural and geotechnical work." },
-      { name: "Electrical Measuring Tools", description: "Electronics manufacturing measuring instruments are essential for engineers and technicians to measure, test and troubleshoot circuits and assemblies." },
-      { name: "Industrial Temperature Instruments", description: "Designed by experts using premium raw materials — widely used to meet the temperature monitoring demands of varied industries." },
+      { name: "RTD Sensors", image: iRtd, description: "Quality is directly linked to safety, operating costs and efficiency. Marine-approved sensors are tested meticulously to provide predictability and security." },
+      { name: "Thermocouples", image: iThermocouple, description: "A device for measuring temperature. Two dissimilar metallic wires joined to form a junction; heating or cooling generates a small voltage corresponding to temperature." },
+      { name: "Protractor", image: iProtractor, description: "A basic device used for measuring angles with a least count of 1° or ½°. Bevel protractors are angular measuring instruments used in machining and inspection." },
+      { name: "HART Communicator", image: iHart, description: "A secondary master device that enables the technician in the field to monitor process parameter values and configure smart instruments." },
+      { name: "Telescopic Gauge", image: iTelescopic, description: "A measuring instrument with a spring-loaded plunger used together with a micrometer to measure bore diameters and inside hole dimensions." },
+      { name: "Pressure Sensor", image: iPressureSensor, description: "Detects pressure and transforms it into an electric signal whose strength is dependent on the pressure being applied." },
+      { name: "Calliper", image: iCalliper, description: "An instrument used to measure the dimensions of an object or hole — length, width, thickness, diameter or depth." },
+      { name: "Micrometer", image: iMicrometer, description: "Also known as outside or external micrometer — used to check the outside diameter of cylindrical components with high precision." },
+      { name: "Bubble Inclinometer", image: iInclinometer, description: "An inclinometer simply determines how steep a particular incline is — used in alignment, structural and geotechnical work." },
+      { name: "Electrical Measuring Tools", image: iElecMeasuring, description: "Electronics manufacturing measuring instruments are essential for engineers and technicians to measure, test and troubleshoot circuits and assemblies." },
+      { name: "Industrial Temperature Instruments", image: iIndTemp, description: "Designed by experts using premium raw materials — widely used to meet the temperature monitoring demands of varied industries." },
       { name: "Magnetic Flow Meter", image: imgControlSystems, description: "A transducer that measures fluid flow by the voltage induced across the liquid as it flows through a magnetic field — proportional to flow velocity perpendicular to the flux lines." },
-      { name: "Position & Displacement Sensors", description: "Position and displacement sensors paired with controllers and valves — typically implemented mechanically or electronically — enable closed-loop process control." },
+      { name: "Position & Displacement Sensors", image: iPosition, description: "Position and displacement sensors paired with controllers and valves — typically implemented mechanically or electronically — enable closed-loop process control." },
     ],
   },
 

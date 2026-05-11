@@ -213,7 +213,8 @@ const Catalog = () => {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

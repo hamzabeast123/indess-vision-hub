@@ -84,7 +84,7 @@ const SLIDES: Slide[] = [
   },
 ];
 
-const AUTO_MS = 4200;
+const AUTO_MS = 2800;
 
 const HeroCarousel = () => {
   const [active, setActive] = useState(0);

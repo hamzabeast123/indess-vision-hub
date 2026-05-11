@@ -21,6 +21,7 @@ import imgPetro from "@/assets/industry-petrochemical.jpg";
 import imgPower from "@/assets/industry-power.jpg";
 import imgShip from "@/assets/industry-shipping.jpg";
 import imgAviation from "@/assets/industry-aviation.jpg";
+import oasisLogo from "@/assets/oasis-logo.png";
 
 // ───────────────────────── Reusable editorial atoms ─────────────────────────
 const SectionLabel = ({ n, label }: { n: string; label: string }) => (
@@ -44,7 +45,6 @@ const industries = [
   { n: "03", title: "Power Generation", img: imgPower, copy: "Generation, transmission and distribution networks." },
   { n: "04", title: "Ship Building", img: imgShip, copy: "Marine-grade systems for shipyards and offshore vessels." },
   { n: "05", title: "Aviation", img: imgAviation, copy: "Engine, avionics and ground support equipment." },
-  { n: "06", title: "Manufacturing", img: imgManufacturing, copy: "Heavy industrial assembly and process automation." },
 ];
 
 const services = [
@@ -70,14 +70,20 @@ const products = [
   { n: "P/05", title: "Marine Products", img: imgMarine, copy: "Trusted supplier of high-quality products for VLCs (Very Large Carriers) and VLCCs (Very Large Crude Carriers) — engineered for the harshest marine environments.", items: ["Marine-Grade Pumps & Valves", "Deck & Engine Room Equipment", "Onboard Safety & Fire Systems", "Spares for VLCs & VLCCs"] },
 ];
 
-const brands = ["GE", "Mitsubishi", "Schneider", "Honeywell", "Omron", "ABB", "Fanuc", "Eaton", "Bosch", "Lenze", "Banner", "Siemens"];
-const partners = [
+const brands: { name: string; logo?: string }[] = [
+  { name: "GE" }, { name: "Mitsubishi" }, { name: "Schneider" }, { name: "Honeywell" },
+  { name: "Omron" }, { name: "ABB" }, { name: "Fanuc" }, { name: "Eaton" },
+  { name: "Bosch" }, { name: "Lenze" }, { name: "Banner" }, { name: "Siemens" },
+  { name: "OASIS", logo: oasisLogo },
+];
+const partners: { name: string; role: string; logo?: string }[] = [
   { name: "Dongeun Valve", role: "Industrial Valves — South Korea" },
   { name: "Himile Mechanical", role: "Precision Engineering — China" },
   { name: "Wooju Gaspack", role: "Gas Handling Systems — South Korea" },
   { name: "HS Valve", role: "Valves & Pipeline — South Korea" },
   { name: "Horizon Water", role: "Water Treatment — China" },
   { name: "Cangzhou Hongding", role: "Pipes & Fittings — China" },
+  { name: "OASIS", role: "HSE Services & Trainings — Pakistan", logo: oasisLogo },
 ];
 const clients = ["NMDC", "ADNOC", "Borouge", "NPCC", "DEWA", "EWEC", "G42", "DP World", "Fertiglobe", "Abu Dhabi Ports", "Oman Drydock", "GMS"];
 
@@ -161,7 +167,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5">
               <div className="aspect-[4/5] overflow-hidden bg-foreground/5">
-                <img src={imgCEO} alt="CEO portrait" loading="lazy" className="w-full h-full object-cover grayscale" width={1080} height={1350} />
+                <img src={imgCEO} alt="CEO portrait" loading="lazy" className="w-full h-full object-cover" width={1080} height={1350} />
               </div>
               <div className="mt-6">
                 <p className="text-[10px] tracking-editorial uppercase text-gold">The Chief Executive</p>
@@ -190,44 +196,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════ 03 · SERVICES (cinematic split) ═══════════ */}
-      <section id="services" className="relative py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-25">
-          <img src={imgProcess} alt="" className="w-full h-full object-cover" width={1920} height={1080} loading="lazy" />
-        </div>
-        <div className="absolute inset-0 bg-[hsl(210_100%_10%)]/80" />
-        <div className="container relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-6">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">03</span>
-                <span className="h-px w-10 rule-gold" />
-                <span className="text-[11px] tracking-editorial uppercase text-white/60">Our Services</span>
-              </div>
-              <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
-                A complete supply chain — engineered end to end.
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-8 lg:pt-6">
-              <p className="text-[15px] text-white/65 leading-[1.8] font-light">
-                From initial specification to after-sales continuity, we operate as a single point of accountability for our clients&rsquo; equipment supply needs.
-              </p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-px bg-white/10">
-            {services.map((s) => (
-              <div key={s.n} className="bg-[hsl(210_100%_10%)] p-10 lg:p-14">
-                <div className="flex items-baseline gap-4 mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">{s.n}</span>
-                  <span className="h-px w-8 rule-gold" />
-                </div>
-                <h3 className="font-display-light text-3xl md:text-4xl mb-4">{s.title}</h3>
-                <p className="text-[14px] text-white/65 leading-[1.8] font-light max-w-md">{s.copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Services section hidden per request */}
 
       {/* ═══════════ 04 · OUR EXPERTISE (5 core domains) ═══════════ */}
       <section id="expertise" className="py-32 lg:py-40 bg-brand-soft">
@@ -315,6 +284,51 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════ 06 · OASIS HSE PARTNERSHIP ═══════════ */}
+      <section id="oasis" className="py-32 lg:py-40 bg-brand-soft">
+        <div className="container">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-5">
+              <div className="bg-white border border-border p-12 lg:p-16 flex items-center justify-center aspect-[4/3]">
+                <img src={oasisLogo} alt="OASIS — Occupational Health and Safety Integrated Services" className="max-h-40 w-auto object-contain" />
+              </div>
+              <div className="mt-6 flex items-center gap-3">
+                <span className="h-px w-8 rule-gold" />
+                <span className="text-[10px] tracking-editorial uppercase text-gold">Strategic HSE Alliance</span>
+              </div>
+            </div>
+            <div className="lg:col-span-7">
+              <SectionLabel n="06" label="HSE Services & Trainings" />
+              <DisplayH className="!text-4xl md:!text-5xl lg:!text-6xl">
+                INDESS joins hands with <span className="italic font-light text-brand">Oasis</span> to deliver world-class HSE services & trainings.
+              </DisplayH>
+              <p className="mt-8 text-[15px] text-muted-foreground leading-[1.8] font-light max-w-2xl">
+                M/s OASIS — Occupational Health and Safety Integrated Services — is a reputable, multi-disciplinary company specialising in HSE Trainings, Human Resource solutions, Consultancy and Trading services for national and international clients across diverse industries.
+              </p>
+              <div className="mt-10 grid sm:grid-cols-2 gap-px bg-border border border-border">
+                {[
+                  { n: "O/01", t: "Human Resources" },
+                  { n: "O/02", t: "HSE Trainings" },
+                  { n: "O/03", t: "HSE Consultancy" },
+                  { n: "O/04", t: "Trading Services" },
+                ].map((s) => (
+                  <div key={s.n} className="bg-white p-6">
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-[10px] tracking-editorial uppercase text-gold">{s.n}</span>
+                      <span className="h-px flex-1 bg-border" />
+                    </div>
+                    <p className="font-display-light text-xl">{s.t}</p>
+                  </div>
+                ))}
+              </div>
+              <a href="https://oasispak.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 mt-10 text-[11px] tracking-editorial uppercase font-medium text-white bg-brand px-6 py-3 hover:bg-brand-deep transition-colors">
+                Visit oasispak.com <ArrowUpRight size={14} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ INDUSTRIES (moved below products) ═══════════ */}
       <section id="industries" className="py-32 lg:py-40 bg-white">
         <div className="container">
@@ -367,10 +381,14 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-border bg-white">
             {brands.map((b, i) => (
-              <div key={b} className="border-r border-b border-border aspect-[3/2] flex items-center justify-center group hover:bg-brand-soft transition-colors">
-                <div className="text-center">
-                  <div className="font-display-light text-2xl md:text-3xl text-foreground/85 group-hover:text-brand transition-colors">{b}</div>
-                  <div className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-2">B/{String(i + 1).padStart(2, "0")}</div>
+              <div key={b.name} className="border-r border-b border-border aspect-[3/2] flex items-center justify-center group hover:bg-brand-soft transition-colors p-6">
+                <div className="text-center flex flex-col items-center gap-2">
+                  {b.logo ? (
+                    <img src={b.logo} alt={b.name} className="max-h-12 w-auto object-contain" />
+                  ) : (
+                    <div className="font-display-light text-2xl md:text-3xl text-foreground/85 group-hover:text-brand transition-colors">{b.name}</div>
+                  )}
+                  <div className="text-[10px] tracking-editorial uppercase text-muted-foreground">B/{String(i + 1).padStart(2, "0")}</div>
                 </div>
               </div>
             ))}
@@ -406,7 +424,13 @@ const Index = () => {
                     <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
                     <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
                   </div>
-                  <PartnerLogo name={p.name} className="mb-6" />
+                  {p.logo ? (
+                    <div className="mb-6 h-14 flex items-center">
+                      <img src={p.logo} alt={p.name} className="max-h-14 w-auto object-contain" />
+                    </div>
+                  ) : (
+                    <PartnerLogo name={p.name} className="mb-6" />
+                  )}
                   <h3 className="font-display-light text-2xl md:text-[1.65rem] mb-4 leading-tight group-hover:text-brand transition-colors">{p.name}</h3>
                   <div className="h-px w-12 rule-gold mb-4" />
                   <p className="text-sm text-muted-foreground font-light">{p.role}</p>

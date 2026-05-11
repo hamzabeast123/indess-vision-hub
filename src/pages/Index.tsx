@@ -44,7 +44,6 @@ const industries = [
   { n: "03", title: "Power Generation", img: imgPower, copy: "Generation, transmission and distribution networks." },
   { n: "04", title: "Ship Building", img: imgShip, copy: "Marine-grade systems for shipyards and offshore vessels." },
   { n: "05", title: "Aviation", img: imgAviation, copy: "Engine, avionics and ground support equipment." },
-  { n: "06", title: "Manufacturing", img: imgManufacturing, copy: "Heavy industrial assembly and process automation." },
 ];
 
 const services = [

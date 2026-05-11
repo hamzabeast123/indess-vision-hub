@@ -22,6 +22,16 @@ import imgPower from "@/assets/industry-power.jpg";
 import imgShip from "@/assets/industry-shipping.jpg";
 import imgAviation from "@/assets/industry-aviation.jpg";
 import oasisLogo from "@/assets/oasis-logo.png";
+import brandABB from "@/assets/brands/abb.jpg";
+import brandBanner from "@/assets/brands/banner.jpg";
+import brandBosch from "@/assets/brands/bosch.jpg";
+import brandEaton from "@/assets/brands/eaton.jpg";
+import brandFanuc from "@/assets/brands/fanuc.png";
+import brandHoneywell from "@/assets/brands/honeywell.jpg";
+import brandLenze from "@/assets/brands/lenze.jpg";
+import brandMitsubishi from "@/assets/brands/mitsubishi.jpg";
+import brandOmron from "@/assets/brands/omron.jpg";
+import brandSchneider from "@/assets/brands/schneider.jpg";
 
 // ───────────────────────── Reusable editorial atoms ─────────────────────────
 const SectionLabel = ({ n, label }: { n: string; label: string }) => (
@@ -71,10 +81,18 @@ const products = [
 ];
 
 const brands: { name: string; logo?: string }[] = [
-  { name: "GE" }, { name: "Mitsubishi" }, { name: "Schneider" }, { name: "Honeywell" },
-  { name: "Omron" }, { name: "ABB" }, { name: "Fanuc" }, { name: "Eaton" },
-  { name: "Bosch" }, { name: "Lenze" }, { name: "Banner" }, { name: "Siemens" },
-  { name: "OASIS", logo: oasisLogo },
+  { name: "GE" },
+  { name: "Mitsubishi", logo: brandMitsubishi },
+  { name: "Schneider", logo: brandSchneider },
+  { name: "Honeywell", logo: brandHoneywell },
+  { name: "Omron", logo: brandOmron },
+  { name: "ABB", logo: brandABB },
+  { name: "Fanuc", logo: brandFanuc },
+  { name: "Eaton", logo: brandEaton },
+  { name: "Bosch", logo: brandBosch },
+  { name: "Lenze", logo: brandLenze },
+  { name: "Banner", logo: brandBanner },
+  { name: "Siemens" },
 ];
 const partners: { name: string; role: string; logo?: string }[] = [
   { name: "Dongeun Valve", role: "Industrial Valves — South Korea" },

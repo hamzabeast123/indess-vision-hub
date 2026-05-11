@@ -71,13 +71,14 @@ const products = [
 ];
 
 const brands = ["GE", "Mitsubishi", "Schneider", "Honeywell", "Omron", "ABB", "Fanuc", "Eaton", "Bosch", "Lenze", "Banner", "Siemens"];
-const partners = [
+const partners: { name: string; role: string; logo?: string }[] = [
   { name: "Dongeun Valve", role: "Industrial Valves — South Korea" },
   { name: "Himile Mechanical", role: "Precision Engineering — China" },
   { name: "Wooju Gaspack", role: "Gas Handling Systems — South Korea" },
   { name: "HS Valve", role: "Valves & Pipeline — South Korea" },
   { name: "Horizon Water", role: "Water Treatment — China" },
   { name: "Cangzhou Hongding", role: "Pipes & Fittings — China" },
+  { name: "OASIS", role: "HSE Services & Trainings — Pakistan", logo: oasisLogo },
 ];
 const clients = ["NMDC", "ADNOC", "Borouge", "NPCC", "DEWA", "EWEC", "G42", "DP World", "Fertiglobe", "Abu Dhabi Ports", "Oman Drydock", "GMS"];
 

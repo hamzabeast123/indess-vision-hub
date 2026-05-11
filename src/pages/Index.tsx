@@ -21,6 +21,7 @@ import imgPetro from "@/assets/industry-petrochemical.jpg";
 import imgPower from "@/assets/industry-power.jpg";
 import imgShip from "@/assets/industry-shipping.jpg";
 import imgAviation from "@/assets/industry-aviation.jpg";
+import oasisLogo from "@/assets/oasis-logo.png";
 
 // ───────────────────────── Reusable editorial atoms ─────────────────────────
 const SectionLabel = ({ n, label }: { n: string; label: string }) => (

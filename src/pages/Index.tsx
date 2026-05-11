@@ -160,7 +160,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5">
               <div className="aspect-[4/5] overflow-hidden bg-foreground/5">
-                <img src={imgCEO} alt="CEO portrait" loading="lazy" className="w-full h-full object-cover grayscale" width={1080} height={1350} />
+                <img src={imgCEO} alt="CEO portrait" loading="lazy" className="w-full h-full object-cover" width={1080} height={1350} />
               </div>
               <div className="mt-6">
                 <p className="text-[10px] tracking-editorial uppercase text-gold">The Chief Executive</p>
@@ -189,44 +189,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════ 03 · SERVICES (cinematic split) ═══════════ */}
-      <section id="services" className="relative py-32 lg:py-40 bg-[hsl(210_100%_10%)] text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-25">
-          <img src={imgProcess} alt="" className="w-full h-full object-cover" width={1920} height={1080} loading="lazy" />
-        </div>
-        <div className="absolute inset-0 bg-[hsl(210_100%_10%)]/80" />
-        <div className="container relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 mb-20">
-            <div className="lg:col-span-6">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-[11px] tracking-editorial uppercase text-gold">03</span>
-                <span className="h-px w-10 rule-gold" />
-                <span className="text-[11px] tracking-editorial uppercase text-white/60">Our Services</span>
-              </div>
-              <h2 className="font-display-light text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight">
-                A complete supply chain — engineered end to end.
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-8 lg:pt-6">
-              <p className="text-[15px] text-white/65 leading-[1.8] font-light">
-                From initial specification to after-sales continuity, we operate as a single point of accountability for our clients&rsquo; equipment supply needs.
-              </p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-px bg-white/10">
-            {services.map((s) => (
-              <div key={s.n} className="bg-[hsl(210_100%_10%)] p-10 lg:p-14">
-                <div className="flex items-baseline gap-4 mb-6">
-                  <span className="text-[11px] tracking-editorial uppercase text-gold">{s.n}</span>
-                  <span className="h-px w-8 rule-gold" />
-                </div>
-                <h3 className="font-display-light text-3xl md:text-4xl mb-4">{s.title}</h3>
-                <p className="text-[14px] text-white/65 leading-[1.8] font-light max-w-md">{s.copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Services section hidden per request */}
 
       {/* ═══════════ 04 · OUR EXPERTISE (5 core domains) ═══════════ */}
       <section id="expertise" className="py-32 lg:py-40 bg-brand-soft">

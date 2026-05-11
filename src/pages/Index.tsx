@@ -278,6 +278,51 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════ 06 · OASIS HSE PARTNERSHIP ═══════════ */}
+      <section id="oasis" className="py-32 lg:py-40 bg-brand-soft">
+        <div className="container">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-5">
+              <div className="bg-white border border-border p-12 lg:p-16 flex items-center justify-center aspect-[4/3]">
+                <img src={oasisLogo} alt="OASIS — Occupational Health and Safety Integrated Services" className="max-h-40 w-auto object-contain" />
+              </div>
+              <div className="mt-6 flex items-center gap-3">
+                <span className="h-px w-8 rule-gold" />
+                <span className="text-[10px] tracking-editorial uppercase text-gold">Strategic HSE Alliance</span>
+              </div>
+            </div>
+            <div className="lg:col-span-7">
+              <SectionLabel n="06" label="HSE Services & Trainings" />
+              <DisplayH className="!text-4xl md:!text-5xl lg:!text-6xl">
+                INDESS joins hands with <span className="italic font-light text-brand">Oasis</span> to deliver world-class HSE services & trainings.
+              </DisplayH>
+              <p className="mt-8 text-[15px] text-muted-foreground leading-[1.8] font-light max-w-2xl">
+                M/s OASIS — Occupational Health and Safety Integrated Services — is a reputable, multi-disciplinary company specialising in HSE Trainings, Human Resource solutions, Consultancy and Trading services for national and international clients across diverse industries.
+              </p>
+              <div className="mt-10 grid sm:grid-cols-2 gap-px bg-border border border-border">
+                {[
+                  { n: "O/01", t: "Human Resources" },
+                  { n: "O/02", t: "HSE Trainings" },
+                  { n: "O/03", t: "HSE Consultancy" },
+                  { n: "O/04", t: "Trading Services" },
+                ].map((s) => (
+                  <div key={s.n} className="bg-white p-6">
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-[10px] tracking-editorial uppercase text-gold">{s.n}</span>
+                      <span className="h-px flex-1 bg-border" />
+                    </div>
+                    <p className="font-display-light text-xl">{s.t}</p>
+                  </div>
+                ))}
+              </div>
+              <a href="https://oasispak.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 mt-10 text-[11px] tracking-editorial uppercase font-medium text-white bg-brand px-6 py-3 hover:bg-brand-deep transition-colors">
+                Visit oasispak.com <ArrowUpRight size={14} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════ INDUSTRIES (moved below products) ═══════════ */}
       <section id="industries" className="py-32 lg:py-40 bg-white">
         <div className="container">

@@ -159,11 +159,24 @@ const Catalog = () => {
           {filtered.length === 0 && (
             <p className="text-center text-muted-foreground font-light py-20">No products match your search.</p>
           )}
-          {filtered.map((cat) => (
+          {filtered.map((cat) => {
+            const fullRangeSlug: Record<string, string> = {
+              "Mechanical Solutions": "mechanical-equipment",
+              "Instrumentation": "instrumentation",
+              "Electrical Systems & Equipment": "electrical-equipment",
+              "Industrial Chemicals": "chemicals-lubricants",
+            };
+            const slug = fullRangeSlug[cat.title];
+            return (
             <div key={cat.title}>
               <div className="flex items-baseline gap-6 mb-12 pb-6 border-b border-border">
                 <span className="text-[11px] tracking-editorial uppercase text-gold">{cat.n}</span>
                 <h2 className="font-display-light text-4xl md:text-5xl tracking-tight">{cat.title}</h2>
+                {slug && (
+                  <Link to={`/catalog/${slug}`} className="ml-auto inline-flex items-center gap-2 text-[11px] tracking-editorial uppercase text-brand hover:text-gold transition-colors">
+                    View Full Range <ArrowRight size={14} />
+                  </Link>
+                )}
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
                 {cat.subs.map((sub) => (
@@ -200,7 +213,8 @@ const Catalog = () => {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

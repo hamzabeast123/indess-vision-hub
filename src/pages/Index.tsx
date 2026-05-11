@@ -415,7 +415,13 @@ const Index = () => {
                     <span className="text-[11px] tracking-editorial uppercase text-gold">PT/{String(i + 1).padStart(2, "0")}</span>
                     <ArrowUpRight size={16} className="text-foreground/30 group-hover:text-brand transition-colors" />
                   </div>
-                  <PartnerLogo name={p.name} className="mb-6" />
+                  {p.logo ? (
+                    <div className="mb-6 h-14 flex items-center">
+                      <img src={p.logo} alt={p.name} className="max-h-14 w-auto object-contain" />
+                    </div>
+                  ) : (
+                    <PartnerLogo name={p.name} className="mb-6" />
+                  )}
                   <h3 className="font-display-light text-2xl md:text-[1.65rem] mb-4 leading-tight group-hover:text-brand transition-colors">{p.name}</h3>
                   <div className="h-px w-12 rule-gold mb-4" />
                   <p className="text-sm text-muted-foreground font-light">{p.role}</p>

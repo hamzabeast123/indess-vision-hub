@@ -70,7 +70,12 @@ const products = [
   { n: "P/05", title: "Marine Products", img: imgMarine, copy: "Trusted supplier of high-quality products for VLCs (Very Large Carriers) and VLCCs (Very Large Crude Carriers) — engineered for the harshest marine environments.", items: ["Marine-Grade Pumps & Valves", "Deck & Engine Room Equipment", "Onboard Safety & Fire Systems", "Spares for VLCs & VLCCs"] },
 ];
 
-const brands = ["GE", "Mitsubishi", "Schneider", "Honeywell", "Omron", "ABB", "Fanuc", "Eaton", "Bosch", "Lenze", "Banner", "Siemens"];
+const brands: { name: string; logo?: string }[] = [
+  { name: "GE" }, { name: "Mitsubishi" }, { name: "Schneider" }, { name: "Honeywell" },
+  { name: "Omron" }, { name: "ABB" }, { name: "Fanuc" }, { name: "Eaton" },
+  { name: "Bosch" }, { name: "Lenze" }, { name: "Banner" }, { name: "Siemens" },
+  { name: "OASIS", logo: oasisLogo },
+];
 const partners: { name: string; role: string; logo?: string }[] = [
   { name: "Dongeun Valve", role: "Industrial Valves — South Korea" },
   { name: "Himile Mechanical", role: "Precision Engineering — China" },

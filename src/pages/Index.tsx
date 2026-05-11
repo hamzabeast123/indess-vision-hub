@@ -381,10 +381,14 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-border bg-white">
             {brands.map((b, i) => (
-              <div key={b} className="border-r border-b border-border aspect-[3/2] flex items-center justify-center group hover:bg-brand-soft transition-colors">
-                <div className="text-center">
-                  <div className="font-display-light text-2xl md:text-3xl text-foreground/85 group-hover:text-brand transition-colors">{b}</div>
-                  <div className="text-[10px] tracking-editorial uppercase text-muted-foreground mt-2">B/{String(i + 1).padStart(2, "0")}</div>
+              <div key={b.name} className="border-r border-b border-border aspect-[3/2] flex items-center justify-center group hover:bg-brand-soft transition-colors p-6">
+                <div className="text-center flex flex-col items-center gap-2">
+                  {b.logo ? (
+                    <img src={b.logo} alt={b.name} className="max-h-12 w-auto object-contain" />
+                  ) : (
+                    <div className="font-display-light text-2xl md:text-3xl text-foreground/85 group-hover:text-brand transition-colors">{b.name}</div>
+                  )}
+                  <div className="text-[10px] tracking-editorial uppercase text-muted-foreground">B/{String(i + 1).padStart(2, "0")}</div>
                 </div>
               </div>
             ))}

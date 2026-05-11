@@ -60,6 +60,36 @@ import cXylene from "@/assets/catalog/chemicals/xylene.jpg";
 import cSilicaGel from "@/assets/catalog/chemicals/silica-gel.jpg";
 import cEngineOil from "@/assets/catalog/chemicals/engine-oil.jpg";
 import cGrease from "@/assets/catalog/chemicals/ep-grease.jpg";
+import mAcComp from "@/assets/catalog/mechanical/ac-compressor.jpg";
+import mRotaryScrew from "@/assets/catalog/mechanical/rotary-screw-compressor.jpg";
+import mRecip from "@/assets/catalog/mechanical/reciprocating-compressor.jpg";
+import mDoubleAct from "@/assets/catalog/mechanical/double-acting-compressor.jpg";
+import mMixedFlow from "@/assets/catalog/mechanical/mixed-flow-compressor.jpg";
+import m3dPrint from "@/assets/catalog/mechanical/3d-printing.jpg";
+import mAutomated from "@/assets/catalog/mechanical/automated-machinery.jpg";
+import mFiltersCart from "@/assets/catalog/mechanical/filters-cartridges.jpg";
+import mFiltrationSys from "@/assets/catalog/mechanical/filtration-system.jpg";
+import mMarineComp from "@/assets/catalog/mechanical/marine-compressor.jpg";
+import mCentriPump from "@/assets/catalog/mechanical/centrifugal-pump.jpg";
+import mMultistage from "@/assets/catalog/mechanical/multistage-pump.jpg";
+import mCentriAir from "@/assets/catalog/mechanical/centrifugal-air-compressor.jpg";
+import mHydAcc from "@/assets/catalog/mechanical/hydraulic-hoses-accessories.jpg";
+import mSubmersible from "@/assets/catalog/mechanical/submersible-pump.jpg";
+import mMechFilt from "@/assets/catalog/mechanical/mechanical-filtration.jpg";
+import mCentriFilt from "@/assets/catalog/mechanical/centrifugal-filtration.jpg";
+import mPressFilt from "@/assets/catalog/mechanical/pressure-filtration.jpg";
+import mSelfClean from "@/assets/catalog/mechanical/self-cleaning-filter.jpg";
+import mVacFilt from "@/assets/catalog/mechanical/vacuum-filtration.jpg";
+import mHydHose from "@/assets/catalog/mechanical/hydraulic-hose.jpg";
+import mChemHose from "@/assets/catalog/mechanical/chemical-hose.jpg";
+import mSteamHose from "@/assets/catalog/mechanical/steam-hose.jpg";
+import mRubberHose from "@/assets/catalog/mechanical/rubber-hose.jpg";
+import mPetroHose from "@/assets/catalog/mechanical/petroleum-hose.jpg";
+import mSiliconeHose from "@/assets/catalog/mechanical/silicone-hose.jpg";
+import mSuctionHose from "@/assets/catalog/mechanical/suction-hose.jpg";
+import mCompositeHose from "@/assets/catalog/mechanical/composite-hose.jpg";
+import mCorrugatedHose from "@/assets/catalog/mechanical/corrugated-hose.jpg";
+import mAerospaceHose from "@/assets/catalog/mechanical/aerospace-hose.jpg";
 
 type Item = { name: string; description: string; image?: string };
 type CategoryPage = {
@@ -226,39 +256,39 @@ const PAGES: Record<string, CategoryPage> = {
       "Compressors, pumps, boilers, hoses and filtration systems engineered for heavy industrial duty across marine, oilfield and process plants.",
     hero: imgCompressors,
     items: [
-      { name: "Air Conditioner Compressor", description: "The most vital component of an air conditioning system — circulates refrigerant to all other parts and compresses it to increase its overall temperature." },
+      { name: "Air Conditioner Compressor", image: mAcComp, description: "The most vital component of an air conditioning system — circulates refrigerant to all other parts and compresses it to increase its overall temperature." },
       { name: "Centrifugal Compressors", image: imgCompressors, description: "Rotational compressors that use a fast-spinning disk to propel gas into a cylinder where it is transformed into pressurised energy. A diffuser converts velocity energy into pressurised air." },
-      { name: "Rotary Screw Compressors", description: "Also known as rotary air compressors — use two meshing helical rotors to compress air, forcing it through chambers into a smaller space." },
-      { name: "Reciprocating Compressors", description: "A piston (reciprocating) displacement compressor — high efficiency at full and partial loads, but noisier and larger than other types." },
-      { name: "Double-Acting Compressors", description: "A positive-displacement reciprocating compressor that compresses air on both the up-stroke and down-stroke of the piston — doubling the capacity of a given cylinder size." },
-      { name: "Mixed-Flow Compressor", description: "Combines axial and radial flow paths — exit mean radius is greater at the inlet like a centrifugal design, but flow exits axially rather than radially." },
+      { name: "Rotary Screw Compressors", image: mRotaryScrew, description: "Also known as rotary air compressors — use two meshing helical rotors to compress air, forcing it through chambers into a smaller space." },
+      { name: "Reciprocating Compressors", image: mRecip, description: "A piston (reciprocating) displacement compressor — high efficiency at full and partial loads, but noisier and larger than other types." },
+      { name: "Double-Acting Compressors", image: mDoubleAct, description: "A positive-displacement reciprocating compressor that compresses air on both the up-stroke and down-stroke of the piston — doubling the capacity of a given cylinder size." },
+      { name: "Mixed-Flow Compressor", image: mMixedFlow, description: "Combines axial and radial flow paths — exit mean radius is greater at the inlet like a centrifugal design, but flow exits axially rather than radially." },
       { name: "Boilers", image: imgEngineRoom, description: "Power boilers are large vessels designed to generate steam or hot water for various industrial processes or heating purposes." },
-      { name: "3D Printing Machinery", description: "Additive manufacturing — the construction of a three-dimensional object from a CAD model or digital 3D model, layer by layer." },
-      { name: "Automated Machinery", description: "CNC machines, lathes, milling machines, assembly-line machinery and robotics for automotive and general manufacturing." },
-      { name: "Filters & Cartridges", description: "A porous device for removing impurities or solid particles from a liquid or gas passed through it — used across industrial and everyday applications." },
-      { name: "Filtration System", description: "Water filtration systems remove minute particles from feed water through fine physical barriers and chemical or biological processes." },
-      { name: "Compressors", description: "Reliable LT KE units use pressure and temperature gauges (not electronic sensors) for fast, easy read-outs. Can be cooled with both sea water and fresh water for quick installation." },
+      { name: "3D Printing Machinery", image: m3dPrint, description: "Additive manufacturing — the construction of a three-dimensional object from a CAD model or digital 3D model, layer by layer." },
+      { name: "Automated Machinery", image: mAutomated, description: "CNC machines, lathes, milling machines, assembly-line machinery and robotics for automotive and general manufacturing." },
+      { name: "Filters & Cartridges", image: mFiltersCart, description: "A porous device for removing impurities or solid particles from a liquid or gas passed through it — used across industrial and everyday applications." },
+      { name: "Filtration System", image: mFiltrationSys, description: "Water filtration systems remove minute particles from feed water through fine physical barriers and chemical or biological processes." },
+      { name: "Compressors", image: mMarineComp, description: "Reliable LT KE units use pressure and temperature gauges (not electronic sensors) for fast, easy read-outs. Can be cooled with both sea water and fresh water for quick installation." },
       { name: "Motors and Pumps", image: imgPumps, description: "Sea water pumps transfer or circulate sea water for various marine applications — ballast transfer, bilge pumping, firefighting and high-pressure deck washing." },
-      { name: "Centrifugal Pumps", description: "The most commonly used pump type in the world — robust, efficient and inexpensive to manufacture. Fluid pressure increases from the pump's inlet to its outlet, driving fluid through the system." },
-      { name: "Multistage Pumps", description: "These pumps include two or more impellers and are used for high-head pumping services. Each stage acts as a manifold pump, building pressure progressively." },
-      { name: "Centrifugal Air Compressors", description: "Produce highly pressurised discharge of air via a rotating impeller that imparts velocity to the air — converted to pressure energy in the diffuser stage (dynamic compression)." },
-      { name: "Hydraulic Hoses & Accessories", description: "High-quality stainless steel and aluminium-alloy assemblies for years of trouble-free service. 24-foot quality hydraulic hose lengths available." },
-      { name: "Submersible Pumps", description: "Also known as stormwater, sewage and septic pumps — used in building services, domestic, industrial, commercial, rural, municipal and stormwater recycling applications." },
-      { name: "Mechanical Filtration", description: "A modern process using media arranged in the filter body to meet industrial filtration requirements — divided into surface filtration and depth filtration." },
-      { name: "Centrifugal Filtration", description: "Reliable, durable and efficient filters — commonly used for lube oil filtration in engines and hydraulic systems." },
-      { name: "Pressure Filtration", description: "Involves applying pressure to force the liquid or gas through a filter medium — increases throughput and efficiency over gravity filtration." },
-      { name: "Self-Cleaning Filter Systems", description: "A wide range of self-cleaning filter systems for liquid filtration across various industries — designed to minimise downtime and maintenance." },
-      { name: "Vacuum Filtration", description: "A type of pressure filtration where a vacuum pump is used to create a pressure differential across the filter medium." },
-      { name: "Hydraulic Hoses", description: "The veins and arteries of a machine — they transfer the fluid that keeps the machine running across cylinders, motors and valves." },
-      { name: "Chemical Hose", description: "Designed to transfer various chemicals, acids and solvents safely between vessels, tankers and process equipment." },
-      { name: "Steam Hose", description: "A heavy-duty hose with rubber tube and cover and steel-wire reinforcement. EPDM or butyl rubber is used in the hose tube to withstand high temperatures." },
-      { name: "Rubber Hoses", description: "A popular choice for hydraulic systems — flexible, durable and economical for a wide range of pressure applications." },
-      { name: "Petroleum Transfer Hose", description: "Used to transfer gasoline, oil, ethanol blends and other petroleum-based products up to 50% aromatic content in tank-truck and in-plant operations." },
-      { name: "Silicone Hose", description: "A highly versatile, durable and flexible hose option — silicone retains its shape when exposed to extremely high temperatures." },
-      { name: "Suction Hose", description: "A specific type of fire hose used in drafting operations — when a fire engine uses a vacuum to draw water from a portable tank, pool or other static source." },
-      { name: "Composite Hoses", description: "Vapour-recovery hoses used in petrol stations and fuel terminals to capture and return fuel vapour emissions safely." },
-      { name: "Corrugated Hose", description: "Includes PU duct hose and fully conductive variants — applications span hydraulic, food processing and water supply." },
-      { name: "Aerospace Hose", description: "R157 (660 Series) is a heavyweight 3000 psi (207 bar) aerospace hose assembly qualified to AS604 — extruded smoothbore PTFE innercore reinforced with multiple layers of CRES 304 wire braid, −65 °F to +400 °F." },
+      { name: "Centrifugal Pumps", image: mCentriPump, description: "The most commonly used pump type in the world — robust, efficient and inexpensive to manufacture. Fluid pressure increases from the pump's inlet to its outlet, driving fluid through the system." },
+      { name: "Multistage Pumps", image: mMultistage, description: "These pumps include two or more impellers and are used for high-head pumping services. Each stage acts as a manifold pump, building pressure progressively." },
+      { name: "Centrifugal Air Compressors", image: mCentriAir, description: "Produce highly pressurised discharge of air via a rotating impeller that imparts velocity to the air — converted to pressure energy in the diffuser stage (dynamic compression)." },
+      { name: "Hydraulic Hoses & Accessories", image: mHydAcc, description: "High-quality stainless steel and aluminium-alloy assemblies for years of trouble-free service. 24-foot quality hydraulic hose lengths available." },
+      { name: "Submersible Pumps", image: mSubmersible, description: "Also known as stormwater, sewage and septic pumps — used in building services, domestic, industrial, commercial, rural, municipal and stormwater recycling applications." },
+      { name: "Mechanical Filtration", image: mMechFilt, description: "A modern process using media arranged in the filter body to meet industrial filtration requirements — divided into surface filtration and depth filtration." },
+      { name: "Centrifugal Filtration", image: mCentriFilt, description: "Reliable, durable and efficient filters — commonly used for lube oil filtration in engines and hydraulic systems." },
+      { name: "Pressure Filtration", image: mPressFilt, description: "Involves applying pressure to force the liquid or gas through a filter medium — increases throughput and efficiency over gravity filtration." },
+      { name: "Self-Cleaning Filter Systems", image: mSelfClean, description: "A wide range of self-cleaning filter systems for liquid filtration across various industries — designed to minimise downtime and maintenance." },
+      { name: "Vacuum Filtration", image: mVacFilt, description: "A type of pressure filtration where a vacuum pump is used to create a pressure differential across the filter medium." },
+      { name: "Hydraulic Hoses", image: mHydHose, description: "The veins and arteries of a machine — they transfer the fluid that keeps the machine running across cylinders, motors and valves." },
+      { name: "Chemical Hose", image: mChemHose, description: "Designed to transfer various chemicals, acids and solvents safely between vessels, tankers and process equipment." },
+      { name: "Steam Hose", image: mSteamHose, description: "A heavy-duty hose with rubber tube and cover and steel-wire reinforcement. EPDM or butyl rubber is used in the hose tube to withstand high temperatures." },
+      { name: "Rubber Hoses", image: mRubberHose, description: "A popular choice for hydraulic systems — flexible, durable and economical for a wide range of pressure applications." },
+      { name: "Petroleum Transfer Hose", image: mPetroHose, description: "Used to transfer gasoline, oil, ethanol blends and other petroleum-based products up to 50% aromatic content in tank-truck and in-plant operations." },
+      { name: "Silicone Hose", image: mSiliconeHose, description: "A highly versatile, durable and flexible hose option — silicone retains its shape when exposed to extremely high temperatures." },
+      { name: "Suction Hose", image: mSuctionHose, description: "A specific type of fire hose used in drafting operations — when a fire engine uses a vacuum to draw water from a portable tank, pool or other static source." },
+      { name: "Composite Hoses", image: mCompositeHose, description: "Vapour-recovery hoses used in petrol stations and fuel terminals to capture and return fuel vapour emissions safely." },
+      { name: "Corrugated Hose", image: mCorrugatedHose, description: "Includes PU duct hose and fully conductive variants — applications span hydraulic, food processing and water supply." },
+      { name: "Aerospace Hose", image: mAerospaceHose, description: "R157 (660 Series) is a heavyweight 3000 psi (207 bar) aerospace hose assembly qualified to AS604 — extruded smoothbore PTFE innercore reinforced with multiple layers of CRES 304 wire braid, −65 °F to +400 °F." },
     ],
   },
 };
